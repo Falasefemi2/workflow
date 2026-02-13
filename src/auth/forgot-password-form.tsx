@@ -17,7 +17,7 @@ export function ForgotPasswordForm({
           <form className="p-6 md:p-8">
             <FieldGroup>
               <div className="flex flex-col items-center gap-2 text-center">
-                <h1 className="text-2xl font-bold">Password React</h1>
+                <h1 className="text-2xl font-bold">Password Reset</h1>
                 <p className="text-muted-foreground text-balance">
                   Enter the email address assoicated to your account below.
                 </p>
