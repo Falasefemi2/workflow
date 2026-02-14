@@ -150,11 +150,11 @@ export default function DesignationManagementPage() {
         prevDesignations.map((designation) =>
           designation.id === editingDesignationId
             ? {
-                ...designation,
-                name: formData.name,
-                code: formData.code,
-                departmentId: formData.departmentId,
-              }
+              ...designation,
+              name: formData.name,
+              code: formData.code,
+              departmentId: formData.departmentId,
+            }
             : designation,
         ),
       );

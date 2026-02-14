@@ -321,3 +321,111 @@ export const mockVoucherApprovals: VoucherApprovalSetup[] = [
     approvingOfficers: ["Lisa Anderson", "David Miller", "Emma Davis"],
   },
 ];
+
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  subsidiary: string;
+  designation: string;
+  employmentType: string;
+  status: string;
+}
+
+export const mockUsers: User[] = [
+  {
+    id: "user-1",
+    firstName: "John",
+    lastName: "Doe",
+    email: "john.doe@example.com",
+    gender: "Male",
+    subsidiary: "Admin",
+    designation: "Manager",
+    employmentType: "Full-time",
+    status: "Active",
+  },
+  {
+    id: "user-2",
+    firstName: "Jane",
+    lastName: "Smith",
+    email: "jane.smith@example.com",
+    gender: "Female",
+    subsidiary: "Technology",
+    designation: "Senior Developer",
+    employmentType: "Full-time",
+    status: "Active",
+  },
+  {
+    id: "user-3",
+    firstName: "Mike",
+    lastName: "Johnson",
+    email: "mike.johnson@example.com",
+    gender: "Male",
+    subsidiary: "Product",
+    designation: "Product Manager",
+    employmentType: "Full-time",
+    status: "Active",
+  },
+  {
+    id: "user-4",
+    firstName: "Sarah",
+    lastName: "Williams",
+    email: "sarah.williams@example.com",
+    gender: "Female",
+    subsidiary: "Human Capital",
+    designation: "HR Manager",
+    employmentType: "Full-time",
+    status: "Inactive",
+  },
+  {
+    id: "user-5",
+    firstName: "Robert",
+    lastName: "Brown",
+    email: "robert.brown@example.com",
+    gender: "Male",
+    subsidiary: "Technology",
+    designation: "DevOps Engineer",
+    employmentType: "Contract",
+    status: "Active",
+  },
+];
+
+// Mock options for dropdowns
+export const mockGenderOptions = [
+  { id: "male", value: "Male", label: "Male" },
+  { id: "female", value: "Female", label: "Female" },
+  { id: "other", value: "Other", label: "Other" },
+];
+
+export const mockSubsidiaryOptions = [
+  { id: "admin", value: "Admin", label: "Admin" },
+  { id: "tech", value: "Technology", label: "Technology" },
+  { id: "product", value: "Product", label: "Product" },
+  { id: "hc", value: "Human Capital", label: "Human Capital" },
+  { id: "cs", value: "Customer Support", label: "Customer Support" },
+];
+
+export const mockDesignationOptions = [
+  { id: "manager", value: "Manager", label: "Manager" },
+  { id: "dev", value: "Senior Developer", label: "Senior Developer" },
+  { id: "pm", value: "Product Manager", label: "Product Manager" },
+  { id: "hr", value: "HR Manager", label: "HR Manager" },
+  { id: "devops", value: "DevOps Engineer", label: "DevOps Engineer" },
+  { id: "designer", value: "UI/UX Designer", label: "UI/UX Designer" },
+  { id: "analyst", value: "Business Analyst", label: "Business Analyst" },
+];
+
+export const mockEmploymentTypeOptions = [
+  { id: "fulltime", value: "Full-time", label: "Full-time" },
+  { id: "parttime", value: "Part-time", label: "Part-time" },
+  { id: "contract", value: "Contract", label: "Contract" },
+  { id: "intern", value: "Intern", label: "Intern" },
+];
+
+export const mockStatusOptions = [
+  { id: "active", value: "Active", label: "Active" },
+  { id: "inactive", value: "Inactive", label: "Inactive" },
+  { id: "pending", value: "Pending", label: "Pending" },
+];
