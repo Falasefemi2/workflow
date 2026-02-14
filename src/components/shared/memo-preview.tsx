@@ -44,7 +44,6 @@ export function MemoPreview({
 }: MemoPreviewProps) {
   const navigate = useNavigate();
 
-  // Format date
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -53,7 +52,6 @@ export function MemoPreview({
 
   return (
     <div className="space-y-2">
-      {/* Header with Back */}
       <div className="pb-6 border-b border-border/30">
         <button
           onClick={() => navigate(-1)}
@@ -64,14 +62,12 @@ export function MemoPreview({
         </button>
       </div>
 
-      {/* Memo Title */}
       <div className="text-center py-6 border-b border-border/30">
         <h1 className="text-3xl font-bold text-foreground">
           INTERNAL MEMORANDUM
         </h1>
       </div>
 
-      {/* Memo Metadata */}
       <div className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -99,7 +95,6 @@ export function MemoPreview({
         </div>
       </div>
 
-      {/* Memo Code and Amount */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-y border-border/30">
         <div>
           <p className="text-sm font-medium text-foreground">Memo Code</p>
@@ -120,7 +115,6 @@ export function MemoPreview({
         <p className="text-foreground/70">{data.beneficiary}</p>
       </div>
 
-      {/* Signature Section (if provided) */}
       {data.signerName && (
         <div className="py-8">
           <div className="w-32 h-12 border-b border-foreground/30 mb-2"></div>
@@ -130,7 +124,6 @@ export function MemoPreview({
         </div>
       )}
 
-      {/* Documents Table */}
       {data.documents.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-primary font-bold text-lg">DOCUMENT(S)</h3>
@@ -171,7 +164,6 @@ export function MemoPreview({
         </div>
       )}
 
-      {/* Action Buttons */}
       <div className="flex gap-4 pt-6 border-t border-border/30">
         {onPrint && (
           <Button

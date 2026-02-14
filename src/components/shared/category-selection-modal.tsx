@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/dialog";
 import type { LucideIcon } from "lucide-react";
 
-// Generic category interface - works with ApprovalCategory, HMOCategory, etc.
 export interface CategoryBase {
   id: string | number;
   title: string;
@@ -38,7 +37,6 @@ export function CategorySelectionModal<T extends CategoryBase = CategoryBase>({
     onClose();
   };
 
-  // Default colors if not provided
   const getBackgroundColor = (bgColor?: string) => {
     return (
       bgColor ||

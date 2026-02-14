@@ -47,12 +47,10 @@ export function MemoCreationForm({
 }: MemoCreationFormProps) {
   return (
     <div className="space-y-4">
-      {/* Header */}
       <div className="pb-6 border-b border-border/30">
         <h1 className="text-2xl font-bold text-foreground">Create Memo</h1>
       </div>
 
-      {/* Memo Details Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Department */}
         <FormField label="Department">
@@ -75,7 +73,6 @@ export function MemoCreationForm({
           </Select>
         </FormField>
 
-        {/* Date Created */}
         <FormField label="Date created">
           <Input
             type="date"
@@ -86,7 +83,6 @@ export function MemoCreationForm({
           />
         </FormField>
 
-        {/* Memo Code */}
         <FormField label="Memo code">
           <Input
             placeholder="--input memo code--"
@@ -98,9 +94,7 @@ export function MemoCreationForm({
         </FormField>
       </div>
 
-      {/* Row 2 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Memo Title */}
         <FormField label="Memo title">
           <Input
             placeholder="--input memo title--"
@@ -111,7 +105,6 @@ export function MemoCreationForm({
           />
         </FormField>
 
-        {/* Memo Notes */}
         <FormField label="Memo notes">
           <textarea
             placeholder="--input memo note--"
@@ -123,7 +116,6 @@ export function MemoCreationForm({
           />
         </FormField>
 
-        {/* Amount */}
         <FormField label="Amount">
           <Input
             type="number"
@@ -136,9 +128,7 @@ export function MemoCreationForm({
         </FormField>
       </div>
 
-      {/* Row 3 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Amount in Words */}
         <FormField label="Amount in words">
           <Input
             placeholder="--input amount in words--"
@@ -149,7 +139,6 @@ export function MemoCreationForm({
           />
         </FormField>
 
-        {/* Beneficiary */}
         <FormField label="Beneficiary">
           <Input
             placeholder="--input beneficiary--"
@@ -161,7 +150,6 @@ export function MemoCreationForm({
         </FormField>
       </div>
 
-      {/* Documents Section */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-primary font-bold text-lg">DOCUMENT(S)</h3>
@@ -174,13 +162,11 @@ export function MemoCreationForm({
           </Button>
         </div>
 
-        {/* Document List */}
         {formData.documents.map((doc, index) => (
           <div
             key={doc.id}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 border border-border/30 rounded-lg"
           >
-            {/* Document Name */}
             <FormField label="Document name">
               <Input
                 placeholder="--input document name--"
@@ -193,7 +179,6 @@ export function MemoCreationForm({
               />
             </FormField>
 
-            {/* Document Description */}
             <FormField label="Document description">
               <Input
                 placeholder="--input document description--"
@@ -206,7 +191,6 @@ export function MemoCreationForm({
               />
             </FormField>
 
-            {/* Upload File */}
             <FormField label="Upload File">
               <div className="border-2 border-dashed border-border rounded-lg p-4 text-center">
                 <input
@@ -238,7 +222,6 @@ export function MemoCreationForm({
               </div>
             </FormField>
 
-            {/* Remove Document */}
             <Button
               type="button"
               variant="destructive"
@@ -251,7 +234,6 @@ export function MemoCreationForm({
         ))}
       </div>
 
-      {/* Proceed Button */}
       <div className="flex gap-4 pt-6 border-t border-border/30">
         <Button
           onClick={onProceed}
