@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 interface PageHeaderProps {
   title: string;
   showBack?: boolean;
+  backTo?: string;
   actionLabel?: string;
   onActionClick?: () => void;
 }
@@ -12,6 +13,7 @@ interface PageHeaderProps {
 export function PageHeader({
   title,
   showBack = true,
+  backTo,
   actionLabel = "Add New",
   onActionClick,
 }: PageHeaderProps) {
@@ -22,7 +24,14 @@ export function PageHeader({
       <div className="flex items-center gap-4">
         {showBack && (
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => {
+              if (backTo) {
+                navigate(backTo);
+                return;
+              }
+
+              navigate(-1);
+            }}
             className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -33,7 +42,7 @@ export function PageHeader({
       </div>
 
       {onActionClick && (
-        <Button onClick={onActionClick} className="bg-red-600 hover:bg-red-700">
+        <Button onClick={onActionClick} className="bg-primary hover:bg-primary">
           + {actionLabel}
         </Button>
       )}

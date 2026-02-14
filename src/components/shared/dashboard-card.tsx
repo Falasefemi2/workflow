@@ -5,10 +5,12 @@ export function DashboardCard({
   icon,
   title,
   href,
+  onClick,
 }: {
   icon: React.ReactNode;
   title: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
 }) {
   const content = (
     <div className="flex items-center gap-4">
@@ -31,5 +33,14 @@ export function DashboardCard({
       </NavLink>
     );
   }
+
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={`${className} w-full text-left`}>
+        {content}
+      </button>
+    );
+  }
+
   return <div className={className}>{content}</div>;
 }

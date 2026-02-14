@@ -42,17 +42,17 @@ export function DataTable<T extends { id?: string | number }>({
               <TableHead className="w-12">
                 <input type="checkbox" className="cursor-pointer" />
               </TableHead>
-              <TableHead className="text-red-600 font-semibold">S/N</TableHead>
+              <TableHead className="text-primary font-semibold">S/N</TableHead>
               {columns.map((column) => (
                 <TableHead
                   key={String(column.key)}
-                  className="text-red-600 font-semibold"
+                  className="text-primary font-semibold"
                 >
                   {column.label}
                 </TableHead>
               ))}
               {showActions && (
-                <TableHead className="text-red-600 font-semibold text-center">
+                <TableHead className="text-primary font-semibold text-center">
                   Action
                 </TableHead>
               )}
@@ -94,10 +94,10 @@ export function DataTable<T extends { id?: string | number }>({
                     {onDelete && (
                       <button
                         onClick={() => onDelete(row)}
-                        className="p-2 hover:bg-red-100 rounded-full transition-colors"
+                        className="p-2 hover:bg-primary-foreground rounded-full transition-colors"
                         title="Delete"
                       >
-                        <Trash2 className="w-5 h-5 text-red-600" />
+                        <Trash2 className="w-5 h-5 text-primary" />
                       </button>
                     )}
                   </TableCell>

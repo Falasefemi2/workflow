@@ -3,8 +3,10 @@ import { PageHeader } from "@/components/shared/page-header";
 import { DataTable } from "@/components/shared/data-table";
 import { FormDialog } from "@/components/shared/form-dialog";
 import { FormField } from "@/components/shared/form-field";
+import { DeleteConfirmDialog } from "@/components/shared/delete-confirm-dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 interface Role {
   id: string;
@@ -24,36 +26,74 @@ const mockRoles: Role[] = [
 export default function RoleManagementPage() {
   const [roles, setRoles] = useState<Role[]>(mockRoles);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [editingRoleId, setEditingRoleId] = useState<string | null>(null);
+  const [roleToDelete, setRoleToDelete] = useState<Role | null>(null);
   const [formData, setFormData] = useState({ name: "", description: "" });
+  const isEditMode = editingRoleId !== null;
+  const roleModalText = isEditMode ? "Edit Role" : "Add Role";
 
   // Handle Add/Edit
   const handleAddRole = () => {
+    setEditingRoleId(null);
     setFormData({ name: "", description: "" });
     setIsDialogOpen(true);
   };
 
   const handleEditRole = (role: Role) => {
+    setEditingRoleId(role.id);
     setFormData({ name: role.name, description: role.description });
     setIsDialogOpen(true);
   };
 
   const handleDeleteRole = (role: Role) => {
-    setRoles(roles.filter((r) => r.id !== role.id));
+    setRoleToDelete(role);
+  };
+
+  const handleConfirmDelete = () => {
+    if (!roleToDelete) {
+      return;
+    }
+
+    setRoles((prevRoles) => prevRoles.filter((r) => r.id !== roleToDelete.id));
+    setRoleToDelete(null);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Add new role or update existing
-    console.log("Submitting:", formData);
+
+    if (isEditMode) {
+      setRoles((prevRoles) =>
+        prevRoles.map((role) =>
+          role.id === editingRoleId
+            ? {
+                ...role,
+                name: formData.name,
+                description: formData.description,
+              }
+            : role,
+        ),
+      );
+    } else {
+      const newRole: Role = {
+        id: String(Date.now()),
+        name: formData.name,
+        description: formData.description,
+      };
+
+      setRoles((prevRoles) => [newRole, ...prevRoles]);
+    }
+
     setIsDialogOpen(false);
+    setEditingRoleId(null);
     setFormData({ name: "", description: "" });
   };
 
   return (
-    <div className="min-h-screen bg-background p-6 md:p-12 lg:p-20">
+    <div className="pb-12">
       {/* Header */}
       <PageHeader
         title="Role Management"
+        backTo="/dashboard/admin/system"
         actionLabel="Add New role"
         onActionClick={handleAddRole}
       />
@@ -75,8 +115,11 @@ export default function RoleManagementPage() {
       {/* Form Dialog */}
       <FormDialog
         isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-        title="Add New Role"
+        onClose={() => {
+          setIsDialogOpen(false);
+          setEditingRoleId(null);
+        }}
+        title={roleModalText}
       >
         <form onSubmit={handleSubmit} className="space-y-6">
           <FormField label="Role Name" required>
@@ -90,7 +133,7 @@ export default function RoleManagementPage() {
           </FormField>
 
           <FormField label="Description" required>
-            <textarea
+            <Textarea
               placeholder="Enter description"
               value={formData.description}
               onChange={(e) =>
@@ -109,12 +152,25 @@ export default function RoleManagementPage() {
             >
               Cancel
             </Button>
-            <Button type="submit" className="bg-red-600 hover:bg-red-700">
-              Save Role
+            <Button type="submit" className="bg-primary">
+              {roleModalText}
             </Button>
           </div>
         </form>
       </FormDialog>
+
+      <DeleteConfirmDialog
+        isOpen={roleToDelete !== null}
+        onOpenChange={(isOpen) => {
+          if (!isOpen) {
+            setRoleToDelete(null);
+          }
+        }}
+        title="Delete Role"
+        description={`Are you sure you want to delete "${roleToDelete?.name ?? ""}"? This action cannot be undone.`}
+        confirmLabel="Delete Role"
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 }
