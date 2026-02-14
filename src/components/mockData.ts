@@ -1,4 +1,12 @@
-import { Calendar, FileText, ReceiptText, type LucideIcon } from "lucide-react";
+import {
+  Calendar,
+  FileText,
+  Heart,
+  HeartPlus,
+  ReceiptText,
+  type LucideIcon,
+} from "lucide-react";
+import type { CategoryBase } from "./shared/category-selection-modal";
 
 export interface Level {
   id: string;
@@ -119,12 +127,12 @@ export interface ApprovalCategory {
   id: string;
   title: string;
   icon: LucideIcon;
-  bgColor: string;
-  iconBgColor: string;
+  bgColor?: string;
+  iconBgColor?: string;
   iconColor?: string;
 }
 
-export const approvalCategories: ApprovalCategory[] = [
+export const approvalCategories: CategoryBase[] = [
   {
     id: "leave-approval",
     title: "Leave approval",
@@ -147,6 +155,27 @@ export const approvalCategories: ApprovalCategory[] = [
     id: "voucher-approval",
     title: "E - voucher approval",
     icon: ReceiptText,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+];
+
+export const hmoCategories: CategoryBase[] = [
+  {
+    id: "hmo-setup",
+    title: "HMO Setup",
+    icon: HeartPlus,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "manage-hmo-setup",
+    title: "Manage HMO Setup",
+    icon: Heart,
     bgColor:
       "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
     iconBgColor: "bg-primary/10",
@@ -428,4 +457,491 @@ export const mockStatusOptions = [
   { id: "active", value: "Active", label: "Active" },
   { id: "inactive", value: "Inactive", label: "Inactive" },
   { id: "pending", value: "Pending", label: "Pending" },
+];
+
+export interface ReadingList {
+  id: string;
+  title: string;
+  filePath: string;
+  fileName: string;
+  uploadedAt: string;
+}
+
+export const mockReadingLists: ReadingList[] = [
+  {
+    id: "rl-1",
+    title: "Company Culture Guide",
+    filePath: "/documents/company-culture-guide.pdf",
+    fileName: "company-culture-guide.pdf",
+    uploadedAt: "2025-01-15",
+  },
+  {
+    id: "rl-2",
+    title: "Employee Handbook 2025",
+    filePath: "/documents/employee-handbook-2025.pdf",
+    fileName: "employee-handbook-2025.pdf",
+    uploadedAt: "2025-01-10",
+  },
+  {
+    id: "rl-3",
+    title: "Code of Conduct",
+    filePath: "/documents/code-of-conduct.pdf",
+    fileName: "code-of-conduct.pdf",
+    uploadedAt: "2025-01-05",
+  },
+  {
+    id: "rl-4",
+    title: "HR Policies and Procedures",
+    filePath: "/documents/hr-policies.pdf",
+    fileName: "hr-policies.pdf",
+    uploadedAt: "2024-12-20",
+  },
+  {
+    id: "rl-5",
+    title: "Health and Safety Guidelines",
+    filePath: "/documents/health-safety-guidelines.pdf",
+    fileName: "health-safety-guidelines.pdf",
+    uploadedAt: "2024-12-15",
+  },
+];
+
+export interface HMOSetup {
+  id: string;
+  employeeName: string;
+  hmoServiceProvider: string;
+  registrationDate: string;
+}
+
+export const mockHMOSetups: HMOSetup[] = [
+  {
+    id: "hmo-1",
+    employeeName: "Opeyemi Alabi",
+    hmoServiceProvider: "Reliance HMO",
+    registrationDate: "2025-11-17",
+  },
+  {
+    id: "hmo-2",
+    employeeName: "Chioma Okafor",
+    hmoServiceProvider: "NHIA",
+    registrationDate: "2025-10-22",
+  },
+  {
+    id: "hmo-3",
+    employeeName: "Kunle Adeyemi",
+    hmoServiceProvider: "HealthPlus",
+    registrationDate: "2025-09-15",
+  },
+  {
+    id: "hmo-4",
+    employeeName: "Adeola Okonkwo",
+    hmoServiceProvider: "Axa Mansard",
+    registrationDate: "2025-08-30",
+  },
+  {
+    id: "hmo-5",
+    employeeName: "Tunde Olugbami",
+    hmoServiceProvider: "Reliance HMO",
+    registrationDate: "2025-07-12",
+  },
+];
+
+// Mock options for HMO providers
+export const mockHMOProviders = [
+  { id: "reliance", value: "Reliance HMO", label: "Reliance HMO" },
+  { id: "nhia", value: "NHIA", label: "NHIA" },
+  { id: "healthplus", value: "HealthPlus", label: "HealthPlus" },
+  { id: "axa", value: "Axa Mansard", label: "Axa Mansard" },
+  { id: "hygeia", value: "Hygeia HMO", label: "Hygeia HMO" },
+  { id: "vanguard", value: "Vanguard HMO", label: "Vanguard HMO" },
+];
+
+// Mock employee options
+export const mockEmployees = [
+  { id: "emp-1", name: "Opeyemi Alabi", email: "opeyemi@example.com" },
+  { id: "emp-2", name: "Chioma Okafor", email: "chioma@example.com" },
+  { id: "emp-3", name: "Kunle Adeyemi", email: "kunle@example.com" },
+  { id: "emp-4", name: "Adeola Okonkwo", email: "adeola@example.com" },
+  { id: "emp-5", name: "Tunde Olugbami", email: "tunde@example.com" },
+  { id: "emp-6", name: "Zainab Hassan", email: "zainab@example.com" },
+  { id: "emp-7", name: "Chukwu Nwosu", email: "chukwu@example.com" },
+];
+
+export interface ManageHMO {
+  id: string;
+  hmoName: string;
+  newEntrantFormPath: string;
+  newEntrantFileName: string;
+  existingEmployeeFormPath: string;
+  existingEmployeeFileName: string;
+}
+
+export const mockManageHMOs: ManageHMO[] = [
+  {
+    id: "hmo-1",
+    hmoName: "Reliance HMO",
+    newEntrantFormPath: "/documents/reliance-new-entrant-form.pdf",
+    newEntrantFileName: "reliance-new-entrant-form.pdf",
+    existingEmployeeFormPath: "/documents/reliance-existing-employee-form.pdf",
+    existingEmployeeFileName: "reliance-existing-employee-form.pdf",
+  },
+  {
+    id: "hmo-2",
+    hmoName: "NHIA",
+    newEntrantFormPath: "/documents/nhia-new-entrant-form.pdf",
+    newEntrantFileName: "nhia-new-entrant-form.pdf",
+    existingEmployeeFormPath: "/documents/nhia-existing-employee-form.pdf",
+    existingEmployeeFileName: "nhia-existing-employee-form.pdf",
+  },
+  {
+    id: "hmo-3",
+    hmoName: "HealthPlus",
+    newEntrantFormPath: "/documents/healthplus-new-entrant-form.pdf",
+    newEntrantFileName: "healthplus-new-entrant-form.pdf",
+    existingEmployeeFormPath:
+      "/documents/healthplus-existing-employee-form.pdf",
+    existingEmployeeFileName: "healthplus-existing-employee-form.pdf",
+  },
+  {
+    id: "hmo-4",
+    hmoName: "Axa Mansard",
+    newEntrantFormPath: "/documents/axa-new-entrant-form.pdf",
+    newEntrantFileName: "axa-new-entrant-form.pdf",
+    existingEmployeeFormPath: "/documents/axa-existing-employee-form.pdf",
+    existingEmployeeFileName: "axa-existing-employee-form.pdf",
+  },
+  {
+    id: "hmo-5",
+    hmoName: "Hygeia HMO",
+    newEntrantFormPath: "/documents/hygeia-new-entrant-form.pdf",
+    newEntrantFileName: "hygeia-new-entrant-form.pdf",
+    existingEmployeeFormPath: "/documents/hygeia-existing-employee-form.pdf",
+    existingEmployeeFileName: "hygeia-existing-employee-form.pdf",
+  },
+];
+
+export interface JobRole {
+  id: string;
+  jobRole: string;
+  department: string;
+  unit: string;
+}
+
+export const mockJobRoles: JobRole[] = [
+  {
+    id: "jr-1",
+    jobRole: "Senior Software Engineer",
+    department: "Technology",
+    unit: "Engineering",
+  },
+  {
+    id: "jr-2",
+    jobRole: "Product Manager",
+    department: "Product",
+    unit: "Product Development",
+  },
+  {
+    id: "jr-3",
+    jobRole: "HR Manager",
+    department: "Human Capital",
+    unit: "Human Resources",
+  },
+  {
+    id: "jr-4",
+    jobRole: "Finance Officer",
+    department: "Finance",
+    unit: "Accounting",
+  },
+  {
+    id: "jr-5",
+    jobRole: "Business Analyst",
+    department: "Admin",
+    unit: "Operations",
+  },
+];
+
+// Mock unit options
+export const mockUnitOptions = [
+  { id: "eng", value: "Engineering", label: "Engineering" },
+  { id: "pd", value: "Product Development", label: "Product Development" },
+  { id: "hr", value: "Human Resources", label: "Human Resources" },
+  { id: "acc", value: "Accounting", label: "Accounting" },
+  { id: "ops", value: "Operations", label: "Operations" },
+  { id: "sales", value: "Sales", label: "Sales" },
+  { id: "support", value: "Support", label: "Support" },
+  { id: "legal", value: "Legal", label: "Legal" },
+];
+
+// Mock job role suggestions
+export const mockJobRoleSuggestions = [
+  "Senior Software Engineer",
+  "Junior Developer",
+  "Product Manager",
+  "HR Manager",
+  "Finance Officer",
+  "Business Analyst",
+  "UX/UI Designer",
+  "DevOps Engineer",
+  "Data Scientist",
+  "Project Manager",
+  "Sales Manager",
+  "Customer Support Lead",
+];
+
+export interface Holiday {
+  id: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+  sameDateEveryYear: boolean;
+}
+
+export const mockHolidays: Holiday[] = [
+  {
+    id: "holiday-1",
+    title: "New Year",
+    startDate: "2025-01-01",
+    endDate: "2025-01-01",
+    sameDateEveryYear: true,
+  },
+  {
+    id: "holiday-2",
+    title: "Independence Day",
+    startDate: "2025-06-12",
+    endDate: "2025-06-12",
+    sameDateEveryYear: true,
+  },
+  {
+    id: "holiday-3",
+    title: "Democracy Day",
+    startDate: "2025-06-13",
+    endDate: "2025-06-13",
+    sameDateEveryYear: true,
+  },
+  {
+    id: "holiday-4",
+    title: "Christmas Holiday",
+    startDate: "2025-12-25",
+    endDate: "2025-12-26",
+    sameDateEveryYear: true,
+  },
+  {
+    id: "holiday-5",
+    title: "Company Anniversary",
+    startDate: "2025-03-15",
+    endDate: "2025-03-15",
+    sameDateEveryYear: false,
+  },
+];
+
+// Mock options for "Same Date Every Year"
+export const mockSameDateOptions = [
+  { id: "yes", value: true, label: "Yes" },
+  { id: "no", value: false, label: "No" },
+];
+
+export interface LeaveType {
+  id: string;
+  name: string;
+  days: number;
+  description: string;
+}
+
+export const mockLeaveTypes: LeaveType[] = [
+  {
+    id: "lt-1",
+    name: "STUDY LEAVE",
+    days: 20,
+    description:
+      "A period of absence from work granted to employees for the purpose of pursuing educational activities or further training.",
+  },
+  {
+    id: "lt-2",
+    name: "SICK LEAVE",
+    days: 20,
+    description:
+      "Time off granted to employees when they are ill or injured and unable to work.",
+  },
+  {
+    id: "lt-3",
+    name: "COMPASSIONATE LEAVE",
+    days: 20,
+    description:
+      "Leave taken by employees to deal with the death or serious illness of a close family member or loved one.",
+  },
+  {
+    id: "lt-4",
+    name: "MATERNITY LEAVE",
+    days: 20,
+    description:
+      "Time off granted to female employees before and after the birth of their child to recover and care for their newborn.",
+  },
+];
+
+export interface AnnualLeavePlan {
+  id: string;
+  periodTitle: string;
+  startDate: string;
+  endDate: string;
+}
+
+export const mockAnnualLeavePlans: AnnualLeavePlan[] = [
+  {
+    id: "alp-1",
+    periodTitle: "Q1 Planning 2025",
+    startDate: "2025-01-01",
+    endDate: "2025-03-31",
+  },
+  {
+    id: "alp-2",
+    periodTitle: "Q2 Planning 2025",
+    startDate: "2025-04-01",
+    endDate: "2025-06-30",
+  },
+  {
+    id: "alp-3",
+    periodTitle: "Q3 Planning 2025",
+    startDate: "2025-07-01",
+    endDate: "2025-09-30",
+  },
+  {
+    id: "alp-4",
+    periodTitle: "Q4 Planning 2025",
+    startDate: "2025-10-01",
+    endDate: "2025-12-31",
+  },
+];
+
+export interface LeaveReport {
+  id: string;
+  leaveType: string;
+  staffName: string;
+  staffNumber: string;
+  department: string;
+  commencementDate: string;
+  resumptionDate: string;
+}
+
+export interface ApprovedLeave {
+  id: string;
+  employeeName: string;
+  leaveType: string;
+  days: number;
+  startDate: string;
+  endDate: string;
+  status: "Approved" | "Pending" | "Rejected";
+}
+
+export const mockLeaveReports: LeaveReport[] = [
+  {
+    id: "lr-1",
+    leaveType: "Exam Leave",
+    staffName: "Akinlade Solomon",
+    staffNumber: "40062",
+    department: "Human Capital Management",
+    commencementDate: "2025-12-01",
+    resumptionDate: "2025-12-01",
+  },
+  {
+    id: "lr-2",
+    leaveType: "Maternity leave",
+    staffName: "Akinlade Solomon",
+    staffNumber: "40062",
+    department: "Human Capital Management",
+    commencementDate: "2025-12-01",
+    resumptionDate: "2025-12-01",
+  },
+  {
+    id: "lr-3",
+    leaveType: "Casual Leave",
+    staffName: "Akinlade Solomon",
+    staffNumber: "40062",
+    department: "Human Capital Management",
+    commencementDate: "2025-12-01",
+    resumptionDate: "2025-12-01",
+  },
+  {
+    id: "lr-4",
+    leaveType: "Sick Leave",
+    staffName: "Akinlade Solomon",
+    staffNumber: "40062",
+    department: "Human Capital Management",
+    commencementDate: "2025-12-01",
+    resumptionDate: "2025-12-01",
+  },
+  {
+    id: "lr-5",
+    leaveType: "Maternity leave",
+    staffName: "Akinlade Solomon",
+    staffNumber: "40062",
+    department: "Human Capital Management",
+    commencementDate: "2025-12-01",
+    resumptionDate: "2025-12-01",
+  },
+];
+
+export const mockApprovedLeaves: ApprovedLeave[] = [
+  {
+    id: "al-1",
+    employeeName: "Akinlade Solomon",
+    leaveType: "Exam Leave",
+    days: 5,
+    startDate: "2025-11-17",
+    endDate: "2025-11-19",
+    status: "Pending",
+  },
+  {
+    id: "al-2",
+    employeeName: "Akinlade Solomon",
+    leaveType: "Maternity leave",
+    days: 5,
+    startDate: "2025-11-17",
+    endDate: "2025-11-19",
+    status: "Rejected",
+  },
+  {
+    id: "al-3",
+    employeeName: "Akinlade Solomon",
+    leaveType: "Casual Leave",
+    days: 5,
+    startDate: "2025-11-17",
+    endDate: "2025-11-19",
+    status: "Rejected",
+  },
+  {
+    id: "al-4",
+    employeeName: "Akinlade Solomon",
+    leaveType: "Sick Leave",
+    days: 5,
+    startDate: "2025-11-17",
+    endDate: "2025-11-19",
+    status: "Approved",
+  },
+  {
+    id: "al-5",
+    employeeName: "Akinlade Solomon",
+    leaveType: "Maternity leave",
+    days: 5,
+    startDate: "2025-11-17",
+    endDate: "2025-11-19",
+    status: "Approved",
+  },
+];
+
+export const mockEmployeeOptions = [
+  { id: "emp-1", value: "Akinlade Solomon", label: "Akinlade Solomon" },
+  { id: "emp-2", value: "Chioma Okafor", label: "Chioma Okafor" },
+  { id: "emp-3", value: "Kunle Adeyemi", label: "Kunle Adeyemi" },
+];
+
+export const mockLeaveTypeOptions = [
+  { id: "exam", value: "Exam Leave", label: "Exam Leave" },
+  { id: "maternity", value: "Maternity leave", label: "Maternity leave" },
+  { id: "casual", value: "Casual Leave", label: "Casual Leave" },
+  { id: "sick", value: "Sick Leave", label: "Sick Leave" },
+];
+
+export const mockApprovalStatusOptions = [
+  { id: "approved", value: "Approved", label: "Approved" },
+  { id: "pending", value: "Pending", label: "Pending" },
+  { id: "rejected", value: "Rejected", label: "Rejected" },
 ];

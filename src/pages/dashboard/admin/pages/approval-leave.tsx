@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useLeaveApprovalManagement } from "./use-leave-approval";
+import { useLeaveApprovalManagement } from "@/hooks/use-leave-approval";
 import {
   mockApprovalLevelOptions,
   mockDepartmentOptions,
@@ -199,3 +199,4 @@ export default function LeaveApprovalPage() {
     </div>
   );
 }
+

@@ -18,9 +18,13 @@ import {
   mockMinimumLeaveDaysOptions,
   type Level,
 } from "@/components/mockData";
-import { useLevelManagement } from "./use-level-management";
+import { useLevelManagement } from "@/hooks/use-level-management";
 
-export default function LevelManagementPage() {
+export default function LevelManagementPage({
+  backTo = "/dashboard/admin/system",
+}: {
+  backTo?: string;
+}) {
   const {
     levels,
     isDialogOpen,
@@ -41,7 +45,7 @@ export default function LevelManagementPage() {
     <div className="pb-12">
       <PageHeader
         title="Level Management"
-        backTo="/dashboard/admin/system"
+        backTo={backTo}
         actionLabel="Add New Level"
         onActionClick={handleAddLevel}
       />
@@ -280,3 +284,4 @@ export default function LevelManagementPage() {
     </div>
   );
 }
+

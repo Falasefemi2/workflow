@@ -14,6 +14,15 @@ import LevelManagementPage from "./pages/dashboard/admin/pages/level";
 import LeaveApprovalPage from "./pages/dashboard/admin/pages/approval-leave";
 import MemoApprovalPage from "./pages/dashboard/admin/pages/approval-memo";
 import VoucherApprovalPage from "./pages/dashboard/admin/pages/approval-voucher";
+import HrDashboard from "./pages/dashboard/hr";
+import HRDashboardContent from "./pages/dashboard/hr/hr-dashboard-content";
+import HRSystemSetupContent from "./pages/dashboard/hr/hr-system-setup-content";
+import ReadingListPage from "./pages/dashboard/hr/hr-reading-list";
+import HMOSetupPage from "./pages/dashboard/hr/hr-hmo-setup";
+import ManageHMOPage from "./pages/dashboard/hr/hr-manage-hmo";
+import JobRolePage from "./pages/dashboard/hr/job-role";
+import HolidayManagementPage from "./pages/dashboard/hr/hr-holiday";
+import LeaveManagementContentPage from "./pages/dashboard/hr/hr-leave";
 
 function App() {
   return (
@@ -37,6 +46,31 @@ function App() {
         <Route path="approvals/leave" element={<LeaveApprovalPage />} />
         <Route path="approvals/memo" element={<MemoApprovalPage />} />
         <Route path="approvals/voucher" element={<VoucherApprovalPage />} />
+      </Route>
+
+      {/* HR routes */}
+
+      <Route path="/dashboard/hr" element={<HrDashboard />}>
+        <Route index element={<HRDashboardContent />} />
+        <Route path="system" element={<HRSystemSetupContent />} />
+        <Route
+          path="departments"
+          element={<DepartmentManagementPage backTo="/dashboard/hr/system" />}
+        />
+        <Route
+          path="designations"
+          element={<DesignationManagementPage backTo="/dashboard/hr/system" />}
+        />
+        <Route
+          path="levels"
+          element={<LevelManagementPage backTo="/dashboard/hr/system" />}
+        />
+        <Route path="readinglist" element={<ReadingListPage />} />
+        <Route path="hmo-setup" element={<HMOSetupPage />} />
+        <Route path="manage-hmo-setup" element={<ManageHMOPage />} />
+        <Route path="jobrole" element={<JobRolePage />} />
+        <Route path="holidays" element={<HolidayManagementPage />} />
+        <Route path="leaves" element={<LeaveManagementContentPage />} />
       </Route>
     </Routes>
   );

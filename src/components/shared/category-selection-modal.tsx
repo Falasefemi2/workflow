@@ -6,35 +6,52 @@ import {
 } from "@/components/ui/dialog";
 import type { LucideIcon } from "lucide-react";
 
-interface CategoryOption {
+// Generic category interface - works with ApprovalCategory, HMOCategory, etc.
+export interface CategoryBase {
   id: string | number;
   title: string;
   icon: LucideIcon;
-  bgColor: string;
-  iconBgColor: string;
+  bgColor?: string;
+  iconBgColor?: string;
   iconColor?: string;
 }
 
-interface CategorySelectionModalProps {
+interface CategorySelectionModalProps<T extends CategoryBase = CategoryBase> {
   isOpen: boolean;
   onClose: () => void;
   title: string;
   description: string;
-  categories: CategoryOption[];
-  onSelectCategory: (category: CategoryOption) => void;
+  categories: T[];
+  onSelectCategory: (category: T) => void;
 }
 
-export function CategorySelectionModal({
+export function CategorySelectionModal<T extends CategoryBase = CategoryBase>({
   isOpen,
   onClose,
   title,
   description,
   categories,
   onSelectCategory,
-}: CategorySelectionModalProps) {
-  const handleSelectCategory = (category: CategoryOption) => {
+}: CategorySelectionModalProps<T>) {
+  const handleSelectCategory = (category: T) => {
     onSelectCategory(category);
     onClose();
+  };
+
+  // Default colors if not provided
+  const getBackgroundColor = (bgColor?: string) => {
+    return (
+      bgColor ||
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50"
+    );
+  };
+
+  const getIconBackgroundColor = (iconBgColor?: string) => {
+    return iconBgColor || "bg-primary/10";
+  };
+
+  const getIconColor = (iconColor?: string) => {
+    return iconColor || "text-primary";
   };
 
   return (
@@ -50,7 +67,6 @@ export function CategorySelectionModal({
             </div>
           </div>
         </DialogHeader>
-
         <div className="mt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {categories.map((category) => {
@@ -59,13 +75,17 @@ export function CategorySelectionModal({
                 <button
                   key={category.id}
                   onClick={() => handleSelectCategory(category)}
-                  className={`${category.bgColor} rounded-lg p-6 flex items-center gap-4 hover:shadow-lg transition-shadow cursor-pointer group`}
+                  className={`${getBackgroundColor(
+                    category.bgColor,
+                  )} rounded-lg p-6 flex items-center gap-4 hover:shadow-lg transition-shadow cursor-pointer group`}
                 >
                   <div
-                    className={`${category.iconBgColor} rounded-full p-4 shrink-0 group-hover:scale-110 transition-transform`}
+                    className={`${getIconBackgroundColor(
+                      category.iconBgColor,
+                    )} rounded-full p-4 shrink-0 group-hover:scale-110 transition-transform`}
                   >
                     <Icon
-                      className={`w-8 h-8 ${category.iconColor ?? "text-white"}`}
+                      className={`w-8 h-8 ${getIconColor(category.iconColor)}`}
                     />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">

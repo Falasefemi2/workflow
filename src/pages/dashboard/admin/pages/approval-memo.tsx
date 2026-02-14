@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useMemoApprovalManagement } from "./use-memo-approval";
+import { useMemoApprovalManagement } from "@/hooks/use-memo-approval";
 import {
   mockApprovingOfficers,
   mockCommitteeOfficers,
@@ -242,3 +242,4 @@ export default function MemoApprovalPage() {
     </div>
   );
 }
+

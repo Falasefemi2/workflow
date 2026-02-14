@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useVoucherApprovalManagement } from "./use-voucher-approval";
+import { useVoucherApprovalManagement } from "@/hooks/use-voucher-approval";
 import {
   mockApprovingOfficers,
   mockDepartmentOptions,
@@ -186,3 +186,4 @@ export default function VoucherApprovalPage() {
     </div>
   );
 }
+

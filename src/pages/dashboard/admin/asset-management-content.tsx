@@ -1,4 +1,4 @@
-import { useMemoWorkflow } from "./pages/use-memo";
+import { useMemoWorkflow } from "@/hooks/use-memo";
 import { MemoCreationForm } from "@/components/shared/memo-creation";
 import { mockDepartmentOptions } from "@/components/mockData";
 import { MemoPreview } from "@/components/shared/memo-preview";
@@ -46,3 +46,4 @@ export default function EmployeeMemoPage() {
     </div>
   );
 }
+
