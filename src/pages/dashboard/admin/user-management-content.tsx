@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useUserManagement } from "./pages/use-user";
+import { useUserManagement } from "@/hooks/use-user";
 import {
   mockDesignationOptions,
   mockEmploymentTypeOptions,
@@ -297,3 +297,4 @@ export default function UserManagementPage() {
     </div>
   );
 }
+

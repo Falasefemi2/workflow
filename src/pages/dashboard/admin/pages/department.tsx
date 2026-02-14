@@ -49,7 +49,11 @@ const mockDepartmens: Department[] = [
   { id: "6", name: "Admin", code: "021" },
 ];
 
-export default function DepartmentManagementPage() {
+export default function DepartmentManagementPage({
+  backTo = "/dashboard/admin/system",
+}: {
+  backTo?: string;
+}) {
   const [departments, setDepartments] = useState<Department[]>(mockDepartmens);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingDepartmentId, setEditingDepartmentId] = useState<string | null>(
@@ -133,7 +137,7 @@ export default function DepartmentManagementPage() {
     <div className="pb-12">
       <PageHeader
         title="Department Management"
-        backTo="/dashboard/admin/system"
+        backTo={backTo}
         actionLabel="Add New Department"
         onActionClick={handleAddDepartment}
       />

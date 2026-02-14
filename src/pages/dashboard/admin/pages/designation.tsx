@@ -91,7 +91,11 @@ const mockDesignations: Designation[] = [
   },
 ];
 
-export default function DesignationManagementPage() {
+export default function DesignationManagementPage({
+  backTo = "/dashboard/admin/system",
+}: {
+  backTo?: string;
+}) {
   const [designations, setDesignations] =
     useState<Designation[]>(mockDesignations);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -188,7 +192,7 @@ export default function DesignationManagementPage() {
     <div className="pb-12">
       <PageHeader
         title="Designation Management"
-        backTo="/dashboard/admin/system"
+        backTo={backTo}
         actionLabel="Add New Designation"
         onActionClick={handleAddDesignation}
       />
