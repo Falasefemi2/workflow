@@ -1165,3 +1165,88 @@ export const mockApprovingDepartmentHODOptions = [
   { id: "hr-manager", value: "HR Manager", label: "HR Manager" },
   { id: "finance-mgr", value: "Finance Manager", label: "Finance Manager" },
 ];
+
+export type OfferStatus = "Pending" | "Onboarded" | "Withdrawn" | "Rejected";
+
+export interface CandidateOffer {
+  id: string;
+  employeeName: string;
+  department: string;
+  unit: string;
+  level: string;
+  proposedStartDate: string;
+  newStartDate: string;
+  status: OfferStatus;
+}
+
+export const mockCandidateOffers: CandidateOffer[] = [
+  {
+    id: "co-1",
+    employeeName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    unit: "UI/ UX Design",
+    level: "Engineer Level II",
+    proposedStartDate: "2025-05-04",
+    newStartDate: "2025-05-04",
+    status: "Pending",
+  },
+  {
+    id: "co-2",
+    employeeName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    unit: "Project Management",
+    level: "Engineer Level II",
+    proposedStartDate: "2025-05-04",
+    newStartDate: "2025-05-04",
+    status: "Pending",
+  },
+  {
+    id: "co-3",
+    employeeName: "Adeolu Olabanji",
+    department: "Software Development",
+    unit: "Back-end Development",
+    level: "Engineer Level II",
+    proposedStartDate: "2025-05-04",
+    newStartDate: "2025-05-04",
+    status: "Pending",
+  },
+  {
+    id: "co-4",
+    employeeName: "Chioma Okafor",
+    department: "Product",
+    unit: "Product Management",
+    level: "Senior Manager",
+    proposedStartDate: "2025-05-10",
+    newStartDate: "2025-05-10",
+    status: "Onboarded",
+  },
+  {
+    id: "co-5",
+    employeeName: "Kunle Adeyemi",
+    department: "Finance",
+    unit: "Accounting",
+    level: "Finance Officer",
+    proposedStartDate: "2025-04-15",
+    newStartDate: "2025-04-15",
+    status: "Withdrawn",
+  },
+  {
+    id: "co-6",
+    employeeName: "Adeola Okonkwo",
+    department: "Human Capital",
+    unit: "HR Operations",
+    level: "HR Manager",
+    proposedStartDate: "2025-03-20",
+    newStartDate: "2025-03-20",
+    status: "Rejected",
+  },
+];
+
+// Mock candidate options
+export const mockCandidateOptions = [
+  { id: "adeolu", value: "Adeolu Olabanji", label: "Adeolu Olabanji" },
+  { id: "chioma", value: "Chioma Okafor", label: "Chioma Okafor" },
+  { id: "kunle", value: "Kunle Adeyemi", label: "Kunle Adeyemi" },
+  { id: "adeola", value: "Adeola Okonkwo", label: "Adeola Okonkwo" },
+  { id: "tunde", value: "Tunde Olugbami", label: "Tunde Olugbami" },
+];

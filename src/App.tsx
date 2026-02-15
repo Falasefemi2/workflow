@@ -27,6 +27,7 @@ import UnitManagementPage from "./pages/dashboard/hr/unit";
 import OnboardingDocumentPage from "./pages/dashboard/hr/hr-onboarding-docs";
 import ExitApprovalPage from "./pages/dashboard/hr/hr-exit-approval";
 import StaffExitApprovalPage from "./pages/dashboard/hr/hr-staff-exit-approval";
+import CandidateOfferPage from "./pages/dashboard/hr/hr-candidate-offer";
 
 function App() {
   return (
@@ -72,15 +73,13 @@ function App() {
         <Route path="hmo-setup" element={<HMOSetupPage />} />
         <Route path="manage-hmo-setup" element={<ManageHMOPage />} />
         <Route path="exit-approval" element={<ExitApprovalPage />} />
-        <Route
-          path="staff-exit-approval"
-          element={<StaffExitApprovalPage />}
-        />
+        <Route path="staff-exit-approval" element={<StaffExitApprovalPage />} />
         <Route path="jobrole" element={<JobRolePage />} />
         <Route path="holidays" element={<HolidayManagementPage />} />
         <Route path="leaves" element={<LeaveManagementContentPage />} />
         <Route path="units" element={<UnitManagementPage />} />
         <Route path="onboarding" element={<OnboardingDocumentPage />} />
+        <Route path="candidate" element={<CandidateOfferPage />} />
       </Route>
     </Routes>
   );
