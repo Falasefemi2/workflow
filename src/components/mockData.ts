@@ -1,5 +1,8 @@
 import {
   Calendar,
+  CheckCircle,
+  ClipboardCheck,
+  ClipboardList,
   FileText,
   Heart,
   HeartPlus,
@@ -199,6 +202,75 @@ export const exitRetirementCombinedCategories: CategoryBase[] = [
     id: "staff-exit-approval",
     title: "Staff Exit Approval",
     icon: UserCheck,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+];
+
+export const ememoCategories: CategoryBase[] = [
+  {
+    id: "ememo-registration",
+    title: "E-Memo Registration",
+    icon: FileText,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "ememo-tracker",
+    title: "E-Memo Tracker",
+    icon: ClipboardList,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+];
+
+export const exitRetirementCategories: CategoryBase[] = [
+  {
+    id: "exit-retirement",
+    title: "Exit/Retirement",
+    icon: LogOut,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "handover-documents",
+    title: "Handover Documents",
+    icon: FileText,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "exit-interviews-forms",
+    title: "Exit Interviews & Forms",
+    icon: ClipboardCheck,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "clearance-form-approval",
+    title: "Clearance Form Approval",
+    icon: CheckCircle,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "clearance-report",
+    title: "Clearance Report",
+    icon: FileText,
     bgColor:
       "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
     iconBgColor: "bg-primary/10",
@@ -1249,4 +1321,122 @@ export const mockCandidateOptions = [
   { id: "kunle", value: "Kunle Adeyemi", label: "Kunle Adeyemi" },
   { id: "adeola", value: "Adeola Okonkwo", label: "Adeola Okonkwo" },
   { id: "tunde", value: "Tunde Olugbami", label: "Tunde Olugbami" },
+];
+
+export interface PlanAnnualLeave {
+  id: string;
+  daysApplied: number;
+  commencementDate: string;
+  resumptionDate: string;
+  approvalStatus: "Active" | "Pending" | "Rejected";
+}
+
+export const mockPlanAnnualLeaves: PlanAnnualLeave[] = [
+  {
+    id: "pal-1",
+    daysApplied: 20,
+    commencementDate: "2025-01-01",
+    resumptionDate: "2025-12-31",
+    approvalStatus: "Active",
+  },
+  {
+    id: "pal-2",
+    daysApplied: 20,
+    commencementDate: "2025-01-01",
+    resumptionDate: "2025-12-31",
+    approvalStatus: "Active",
+  },
+  {
+    id: "pal-3",
+    daysApplied: 20,
+    commencementDate: "2025-01-01",
+    resumptionDate: "2025-12-31",
+    approvalStatus: "Active",
+  },
+  {
+    id: "pal-4",
+    daysApplied: 20,
+    commencementDate: "2025-01-01",
+    resumptionDate: "2025-12-31",
+    approvalStatus: "Active",
+  },
+  {
+    id: "pal-5",
+    daysApplied: 20,
+    commencementDate: "2025-01-01",
+    resumptionDate: "2025-12-31",
+    approvalStatus: "Active",
+  },
+  {
+    id: "pal-6",
+    daysApplied: 20,
+    commencementDate: "2025-01-01",
+    resumptionDate: "2025-12-31",
+    approvalStatus: "Active",
+  },
+];
+
+export interface EmployeeLeaveInfo {
+  employmentDate: string;
+  annualLeaveDays: number;
+  annualLeaveDaysRemaining: number;
+}
+
+export const mockEmployeeLeaveInfo: EmployeeLeaveInfo = {
+  employmentDate: "",
+  annualLeaveDays: 20,
+  annualLeaveDaysRemaining: 0,
+};
+
+export interface EmployeeHMO {
+  id: string;
+  hmoServiceProvider: string;
+  formFilePath: string;
+}
+
+export const mockEmployeeHMOs: EmployeeHMO[] = [
+  {
+    id: "ehmo-1",
+    hmoServiceProvider: "Reliance HMO",
+    formFilePath: "/forms/reliance-hmo-form.pdf",
+  },
+  {
+    id: "ehmo-2",
+    hmoServiceProvider: "NHIA HMO",
+    formFilePath: "/forms/nhia-hmo-form.pdf",
+  },
+  {
+    id: "ehmo-3",
+    hmoServiceProvider: "HealthPlus HMO",
+    formFilePath: "/forms/healthplus-hmo-form.pdf",
+  },
+  {
+    id: "ehmo-4",
+    hmoServiceProvider: "Axa Mansard Health",
+    formFilePath: "/forms/axa-mansard-hmo-form.pdf",
+  },
+  {
+    id: "ehmo-5",
+    hmoServiceProvider: "Hygeia HMO",
+    formFilePath: "/forms/hygeia-hmo-form.pdf",
+  },
+  {
+    id: "ehmo-6",
+    hmoServiceProvider: "Vanguard Health Plan",
+    formFilePath: "/forms/vanguard-hmo-form.pdf",
+  },
+];
+
+// Mock HMO options for dropdown
+export const mockHMOOptions = [
+  { id: "reliance", value: "Reliance HMO", label: "Reliance HMO" },
+  { id: "nhia", value: "NHIA HMO", label: "NHIA HMO" },
+  { id: "healthplus", value: "HealthPlus HMO", label: "HealthPlus HMO" },
+  { id: "axa", value: "Axa Mansard Health", label: "Axa Mansard Health" },
+  { id: "hygeia", value: "Hygeia HMO", label: "Hygeia HMO" },
+  {
+    id: "vanguard",
+    value: "Vanguard Health Plan",
+    label: "Vanguard Health Plan",
+  },
 ];
