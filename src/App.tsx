@@ -28,60 +28,68 @@ import OnboardingDocumentPage from "./pages/dashboard/hr/hr-onboarding-docs";
 import ExitApprovalPage from "./pages/dashboard/hr/hr-exit-approval";
 import StaffExitApprovalPage from "./pages/dashboard/hr/hr-staff-exit-approval";
 import CandidateOfferPage from "./pages/dashboard/hr/hr-candidate-offer";
+import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
   return (
-    <Routes>
-      {/* Public routes */}
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      <Route path="/reset-password" element={<ResetPasswordPage />} />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-      {/* Admin routes */}
-      <Route path="/dashboard/admin" element={<AdminDashboard />}>
-        <Route index element={<DashboardContent />} />
-        <Route path="dashboard" element={<DashboardContent />} />
-        <Route path="system" element={<SystemSetupContent />} />
-        <Route path="users" element={<UserManagementContent />} />
-        <Route path="assets" element={<AssetManagementContent />} />
-        <Route path="roles" element={<RoleManagementPage />} />
-        <Route path="departments" element={<DepartmentManagementPage />} />
-        <Route path="designations" element={<DesignationManagementPage />} />
-        <Route path="levels" element={<LevelManagementPage />} />
-        <Route path="approvals/leave" element={<LeaveApprovalPage />} />
-        <Route path="approvals/memo" element={<MemoApprovalPage />} />
-        <Route path="approvals/voucher" element={<VoucherApprovalPage />} />
-      </Route>
+        {/* Admin routes */}
+        <Route path="/dashboard/admin" element={<AdminDashboard />}>
+          <Route index element={<DashboardContent />} />
+          <Route path="dashboard" element={<DashboardContent />} />
+          <Route path="system" element={<SystemSetupContent />} />
+          <Route path="users" element={<UserManagementContent />} />
+          <Route path="assets" element={<AssetManagementContent />} />
+          <Route path="roles" element={<RoleManagementPage />} />
+          <Route path="departments" element={<DepartmentManagementPage />} />
+          <Route path="designations" element={<DesignationManagementPage />} />
+          <Route path="levels" element={<LevelManagementPage />} />
+          <Route path="approvals/leave" element={<LeaveApprovalPage />} />
+          <Route path="approvals/memo" element={<MemoApprovalPage />} />
+          <Route path="approvals/voucher" element={<VoucherApprovalPage />} />
+        </Route>
 
-      {/* HR routes */}
-      <Route path="/dashboard/hr" element={<HrDashboard />}>
-        <Route index element={<HRDashboardContent />} />
-        <Route path="system" element={<HRSystemSetupContent />} />
-        <Route
-          path="departments"
-          element={<DepartmentManagementPage backTo="/dashboard/hr/system" />}
-        />
-        <Route
-          path="designations"
-          element={<DesignationManagementPage backTo="/dashboard/hr/system" />}
-        />
-        <Route
-          path="levels"
-          element={<LevelManagementPage backTo="/dashboard/hr/system" />}
-        />
-        <Route path="readinglist" element={<ReadingListPage />} />
-        <Route path="hmo-setup" element={<HMOSetupPage />} />
-        <Route path="manage-hmo-setup" element={<ManageHMOPage />} />
-        <Route path="exit-approval" element={<ExitApprovalPage />} />
-        <Route path="staff-exit-approval" element={<StaffExitApprovalPage />} />
-        <Route path="jobrole" element={<JobRolePage />} />
-        <Route path="holidays" element={<HolidayManagementPage />} />
-        <Route path="leaves" element={<LeaveManagementContentPage />} />
-        <Route path="units" element={<UnitManagementPage />} />
-        <Route path="onboarding" element={<OnboardingDocumentPage />} />
-        <Route path="candidate" element={<CandidateOfferPage />} />
-      </Route>
-    </Routes>
+        {/* HR routes */}
+        <Route path="/dashboard/hr" element={<HrDashboard />}>
+          <Route index element={<HRDashboardContent />} />
+          <Route path="system" element={<HRSystemSetupContent />} />
+          <Route
+            path="departments"
+            element={<DepartmentManagementPage backTo="/dashboard/hr/system" />}
+          />
+          <Route
+            path="designations"
+            element={
+              <DesignationManagementPage backTo="/dashboard/hr/system" />
+            }
+          />
+          <Route
+            path="levels"
+            element={<LevelManagementPage backTo="/dashboard/hr/system" />}
+          />
+          <Route path="readinglist" element={<ReadingListPage />} />
+          <Route path="hmo-setup" element={<HMOSetupPage />} />
+          <Route path="manage-hmo-setup" element={<ManageHMOPage />} />
+          <Route path="exit-approval" element={<ExitApprovalPage />} />
+          <Route
+            path="staff-exit-approval"
+            element={<StaffExitApprovalPage />}
+          />
+          <Route path="jobrole" element={<JobRolePage />} />
+          <Route path="holidays" element={<HolidayManagementPage />} />
+          <Route path="leaves" element={<LeaveManagementContentPage />} />
+          <Route path="units" element={<UnitManagementPage />} />
+          <Route path="onboarding" element={<OnboardingDocumentPage />} />
+          <Route path="candidate" element={<CandidateOfferPage />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 
