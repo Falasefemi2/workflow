@@ -124,7 +124,6 @@ export default function LeaveManagementCompleteFullPage() {
     });
   };
 
-
   const handleApprovedLeavePreview = (leave: ApprovedLeave) => {
     setPreviewLeave({
       employeeName: leave.employeeName,
@@ -189,10 +188,11 @@ export default function LeaveManagementCompleteFullPage() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${activeTab === item.id
-                  ? "bg-white text-primary font-semibold border-l-4 border-primary"
-                  : "text-foreground/70 hover:text-foreground"
-                  }`}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  activeTab === item.id
+                    ? "bg-white text-primary font-semibold border-l-4 border-primary"
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
               >
                 {item.icon}
                 <span className="text-sm">{item.label}</span>
@@ -210,7 +210,7 @@ export default function LeaveManagementCompleteFullPage() {
                 {leaveTypes.map((leaveType) => (
                   <div
                     key={leaveType.id}
-                    className="border-l-4 border-primary bg-white border border-border/30 rounded-lg p-6 hover:shadow-md transition-shadow"
+                    className="border-l-4 border-primary bg-card border border-border/30 rounded-lg p-6 hover:shadow-md transition-shadow"
                   >
                     <div className="flex items-start justify-between mb-3">
                       <div>
@@ -225,7 +225,7 @@ export default function LeaveManagementCompleteFullPage() {
                         <button className="p-1 hover:bg-secondary/20 rounded">
                           <MoreVertical className="w-5 h-5 text-foreground/50" />
                         </button>
-                        <div className="hidden group-hover:block absolute right-0 mt-1 w-40 bg-white border border-border/30 rounded-lg shadow-lg z-10">
+                        <div className="hidden group-hover:block absolute right-0 mt-1 w-40 bg-card border border-border/30 rounded-lg shadow-lg z-10">
                           <button
                             onClick={() => handleEditLeaveType(leaveType)}
                             className="w-full text-left px-4 py-2 text-sm text-foreground hover:bg-secondary/10 border-b border-border/30"
@@ -598,10 +598,3 @@ export default function LeaveManagementCompleteFullPage() {
     </div>
   );
 }
-
-
-
-
-
-
-

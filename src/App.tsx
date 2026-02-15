@@ -29,6 +29,10 @@ import ExitApprovalPage from "./pages/dashboard/hr/hr-exit-approval";
 import StaffExitApprovalPage from "./pages/dashboard/hr/hr-staff-exit-approval";
 import CandidateOfferPage from "./pages/dashboard/hr/hr-candidate-offer";
 import { ThemeProvider } from "./components/theme-provider";
+import HRMenuContent from "./pages/dashboard/hr/menu/menu-content";
+import MenuPlaceholderPage from "./pages/dashboard/hr/menu/menu-placeholder-page";
+import LeavePlanningPage from "./pages/dashboard/hr/menu/leave-planning";
+import HMOPage from "./pages/dashboard/hr/menu/hmo";
 
 function App() {
   return (
@@ -87,6 +91,37 @@ function App() {
           <Route path="units" element={<UnitManagementPage />} />
           <Route path="onboarding" element={<OnboardingDocumentPage />} />
           <Route path="candidate" element={<CandidateOfferPage />} />
+          <Route path="menu" element={<HRMenuContent />} />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<MenuPlaceholderPage title="E-Memo Registration" />}
+          />
+          <Route
+            path="menu/ememo-tracker"
+            element={<MenuPlaceholderPage title="E-Memo Tracker" />}
+          />
+          <Route
+            path="menu/exit-retirement"
+            element={<MenuPlaceholderPage title="Exit/Retirement" />}
+          />
+          <Route
+            path="menu/handover-documents"
+            element={<MenuPlaceholderPage title="Handover Documents" />}
+          />
+          <Route
+            path="menu/exit-interviews-forms"
+            element={<MenuPlaceholderPage title="Exit Interviews & Forms" />}
+          />
+          <Route
+            path="menu/clearance-form-approval"
+            element={<MenuPlaceholderPage title="Clearance Form Approval" />}
+          />
+          <Route
+            path="menu/clearance-report"
+            element={<MenuPlaceholderPage title="Clearance Report" />}
+          />
         </Route>
       </Routes>
     </ThemeProvider>
