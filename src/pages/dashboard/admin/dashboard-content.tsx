@@ -37,7 +37,7 @@ export default function DashboardContent() {
         <div className="lg:col-span-2">
           <Card className="shadow-md border-0">
             <CardHeader className="flex flex-row items-center justify-between space-y-0">
-              <CardTitle className="text-2xl font-bold text-accent">
+              <CardTitle className="text-2xl font-bold text-primary">
                 Job Offers
               </CardTitle>
               <div className="flex items-center gap-2">
@@ -100,24 +100,24 @@ export default function DashboardContent() {
         <div>
           <Card className="shadow-md border-0 h-full">
             <CardHeader>
-              <CardTitle className="text-xl font-bold text-accent">
+              <CardTitle className="text-xl font-bold text-primary">
                 Employee Count
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              {departmentData.slice(0, 3).map((dept) => (
-                <div key={dept.dept} className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-medium text-foreground">
+              {departmentData.map((dept) => (
+                <div key={dept.dept}>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="font-medium text-gray-900">
                       {dept.dept}
                     </span>
-                    <span className="text-muted-foreground">
+                    <span className="text-gray-600">
                       {dept.staff} staff members
                     </span>
                   </div>
                   <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-linear-to-r from-accent"
+                      className="h-full bg-primary"
                       style={{ width: `${(dept.staff / dept.total) * 100}%` }}
                     ></div>
                   </div>

@@ -30,6 +30,8 @@ export default function HrDashboard() {
       pathname.startsWith("/dashboard/hr/holidays") ||
       pathname.startsWith("/dashboard/hr/hmo") ||
       pathname.startsWith("/dashboard/hr/manage-hmo") ||
+      pathname.startsWith("/dashboard/hr/exit-approval") ||
+      pathname.startsWith("/dashboard/hr/staff-exit-approval") ||
       pathname.startsWith("/dashboard/exitretirement") ||
       pathname.startsWith("/dashboard/voucher") ||
       pathname.startsWith("/dashboard/memo")

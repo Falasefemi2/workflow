@@ -3,7 +3,9 @@ import {
   FileText,
   Heart,
   HeartPlus,
+  LogOut,
   ReceiptText,
+  UserCheck,
   type LucideIcon,
 } from "lucide-react";
 import type { CategoryBase } from "./shared/category-selection-modal";
@@ -176,6 +178,27 @@ export const hmoCategories: CategoryBase[] = [
     id: "manage-hmo-setup",
     title: "Manage HMO Setup",
     icon: Heart,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+];
+
+export const exitRetirementCombinedCategories: CategoryBase[] = [
+  {
+    id: "exit-approval",
+    title: "Exit Approval",
+    icon: LogOut,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "staff-exit-approval",
+    title: "Staff Exit Approval",
+    icon: UserCheck,
     bgColor:
       "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
     iconBgColor: "bg-primary/10",
@@ -944,4 +967,201 @@ export const mockApprovalStatusOptions = [
   { id: "approved", value: "Approved", label: "Approved" },
   { id: "pending", value: "Pending", label: "Pending" },
   { id: "rejected", value: "Rejected", label: "Rejected" },
+];
+
+export interface Unit {
+  id: string;
+  name: string;
+  department: string;
+  assignedLevels?: string[];
+}
+
+export const mockUnits: Unit[] = [
+  {
+    id: "unit-1",
+    name: "Engineering Team",
+    department: "Technology",
+    assignedLevels: ["Level 1", "Level 2"],
+  },
+  {
+    id: "unit-2",
+    name: "Product Development",
+    department: "Product",
+    assignedLevels: ["Level 1", "Level 2", "Level 3"],
+  },
+  {
+    id: "unit-3",
+    name: "Human Resources",
+    department: "Human Capital",
+    assignedLevels: ["Level 1"],
+  },
+  {
+    id: "unit-4",
+    name: "Finance Operations",
+    department: "Finance",
+    assignedLevels: ["Level 1", "Level 2"],
+  },
+  {
+    id: "unit-5",
+    name: "Operations",
+    department: "Admin",
+    assignedLevels: ["Level 1"],
+  },
+];
+
+export interface OnboardingDocument {
+  id: string;
+  title: string;
+  filePath: string;
+  fileName: string;
+  uploadedAt: string;
+}
+
+export const mockOnboardingDocuments: OnboardingDocument[] = [
+  {
+    id: "od-1",
+    title: "Company Handbook",
+    filePath: "/documents/company-handbook.pdf",
+    fileName: "company-handbook.pdf",
+    uploadedAt: "2025-01-15",
+  },
+  {
+    id: "od-2",
+    title: "Employee Code of Conduct",
+    filePath: "/documents/code-of-conduct.pdf",
+    fileName: "code-of-conduct.pdf",
+    uploadedAt: "2025-01-10",
+  },
+  {
+    id: "od-3",
+    title: "Benefits Overview",
+    filePath: "/documents/benefits-overview.pdf",
+    fileName: "benefits-overview.pdf",
+    uploadedAt: "2025-01-05",
+  },
+  {
+    id: "od-4",
+    title: "IT Security Policy",
+    filePath: "/documents/it-security-policy.pdf",
+    fileName: "it-security-policy.pdf",
+    uploadedAt: "2024-12-20",
+  },
+  {
+    id: "od-5",
+    title: "Health and Safety Guidelines",
+    filePath: "/documents/health-safety.pdf",
+    fileName: "health-safety.pdf",
+    uploadedAt: "2024-12-15",
+  },
+];
+
+export interface ExitApprovalSetup {
+  id: string;
+  designation: string;
+  approvalLevel: string;
+  approvingDesignation: string;
+}
+
+export const mockExitApprovalSetups: ExitApprovalSetup[] = [
+  {
+    id: "eas-1",
+    designation: "Junior Staff",
+    approvalLevel: "1",
+    approvingDesignation: "Department Manager",
+  },
+  {
+    id: "eas-2",
+    designation: "Senior Staff",
+    approvalLevel: "2",
+    approvingDesignation: "Senior Manager",
+  },
+  {
+    id: "eas-3",
+    designation: "Manager",
+    approvalLevel: "2",
+    approvingDesignation: "Director",
+  },
+  {
+    id: "eas-4",
+    designation: "Director",
+    approvalLevel: "3",
+    approvingDesignation: "CEO",
+  },
+  {
+    id: "eas-5",
+    designation: "Executive",
+    approvalLevel: "3",
+    approvingDesignation: "Board Secretary",
+  },
+];
+
+export interface StaffExitApprovalSetup {
+  id: string;
+  designation: string;
+  numberOfApprovals: string;
+  approvingDepartmentHOD: string;
+}
+
+export const mockStaffExitApprovalSetups: StaffExitApprovalSetup[] = [
+  {
+    id: "seas-1",
+    designation: "Junior Staff",
+    numberOfApprovals: "1",
+    approvingDepartmentHOD: "Department Manager",
+  },
+  {
+    id: "seas-2",
+    designation: "Senior Staff",
+    numberOfApprovals: "2",
+    approvingDepartmentHOD: "Senior Manager",
+  },
+  {
+    id: "seas-3",
+    designation: "Manager",
+    numberOfApprovals: "2",
+    approvingDepartmentHOD: "Director",
+  },
+  {
+    id: "seas-4",
+    designation: "Director",
+    numberOfApprovals: "3",
+    approvingDepartmentHOD: "CEO",
+  },
+  {
+    id: "seas-5",
+    designation: "Executive",
+    numberOfApprovals: "3",
+    approvingDepartmentHOD: "Board Secretary",
+  },
+];
+
+// Mock designation options
+export const mockStaffDesignationOptions = [
+  { id: "junior", value: "Junior Staff", label: "Junior Staff" },
+  { id: "senior", value: "Senior Staff", label: "Senior Staff" },
+  { id: "manager", value: "Manager", label: "Manager" },
+  { id: "senior-manager", value: "Senior Manager", label: "Senior Manager" },
+  { id: "director", value: "Director", label: "Director" },
+  { id: "executive", value: "Executive", label: "Executive" },
+  { id: "ceo", value: "CEO", label: "CEO" },
+];
+
+// Mock number of approvals options (1-5)
+export const mockNumberOfApprovalsOptions = [
+  { id: "num-1", value: "1", label: "1" },
+  { id: "num-2", value: "2", label: "2" },
+  { id: "num-3", value: "3", label: "3" },
+  { id: "num-4", value: "4", label: "4" },
+  { id: "num-5", value: "5", label: "5" },
+];
+
+// Mock approving department/HOD options
+export const mockApprovingDepartmentHODOptions = [
+  { id: "dept-mgr", value: "Department Manager", label: "Department Manager" },
+  { id: "senior-mgr", value: "Senior Manager", label: "Senior Manager" },
+  { id: "director", value: "Director", label: "Director" },
+  { id: "ceo", value: "CEO", label: "CEO" },
+  { id: "board-sec", value: "Board Secretary", label: "Board Secretary" },
+  { id: "hr-manager", value: "HR Manager", label: "HR Manager" },
+  { id: "finance-mgr", value: "Finance Manager", label: "Finance Manager" },
 ];
