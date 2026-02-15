@@ -183,23 +183,21 @@ export default function UnitManagementPage() {
                   <input
                     type="checkbox"
                     checked={assignLevelFormData.selectedLevels.includes(
-                      level.value,
+                      String(level.value),
                     )}
                     onChange={(e) => {
+                      const value = String(level.value);
+
                       if (e.target.checked) {
-                        setAssignLevelFormData({
-                          selectedLevels: [
-                            ...assignLevelFormData.selectedLevels,
-                            level.value,
-                          ],
-                        });
+                        setAssignLevelFormData((prev) => ({
+                          selectedLevels: [...prev.selectedLevels, value],
+                        }));
                       } else {
-                        setAssignLevelFormData({
-                          selectedLevels:
-                            assignLevelFormData.selectedLevels.filter(
-                              (l) => l !== level.value,
-                            ),
-                        });
+                        setAssignLevelFormData((prev) => ({
+                          selectedLevels: prev.selectedLevels.filter(
+                            (l) => l !== value,
+                          ),
+                        }));
                       }
                     }}
                     className="w-4 h-4 cursor-pointer"

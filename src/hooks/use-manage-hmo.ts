@@ -36,7 +36,7 @@ export function useManageHMOManagement() {
     setEditingHMOId(hmo.id);
     setFormData({
       hmoName: hmo.hmoName,
-      newEntrantForm: null, // Files can't be pre-filled for security
+      newEntrantForm: null,
       existingEmployeeForm: null,
     });
     setIsDialogOpen(true);
@@ -60,6 +60,7 @@ export function useManageHMOManagement() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validate required fields
     if (
       !formData.hmoName ||
       !formData.newEntrantForm ||
@@ -69,19 +70,22 @@ export function useManageHMOManagement() {
       return;
     }
 
+    const { hmoName, newEntrantForm, existingEmployeeForm } = formData;
+
     setIsSubmitting(true);
+
     try {
-      if (isEditMode) {
+      if (isEditMode && editingHMOId) {
         setManageHMOs((prevHMOs) =>
           prevHMOs.map((hmo) =>
             hmo.id === editingHMOId
               ? {
                   ...hmo,
-                  hmoName: formData.hmoName,
-                  newEntrantFormPath: `/documents/${formData.newEntrantForm.name}`,
-                  newEntrantFileName: formData.newEntrantForm.name,
-                  existingEmployeeFormPath: `/documents/${formData.existingEmployeeForm.name}`,
-                  existingEmployeeFileName: formData.existingEmployeeForm.name,
+                  hmoName,
+                  newEntrantFormPath: `/documents/${newEntrantForm.name}`,
+                  newEntrantFileName: newEntrantForm.name,
+                  existingEmployeeFormPath: `/documents/${existingEmployeeForm.name}`,
+                  existingEmployeeFileName: existingEmployeeForm.name,
                 }
               : hmo,
           ),
@@ -89,11 +93,11 @@ export function useManageHMOManagement() {
       } else {
         const newHMO: ManageHMO = {
           id: String(Date.now()),
-          hmoName: formData.hmoName,
-          newEntrantFormPath: `/documents/${formData.newEntrantForm.name}`,
-          newEntrantFileName: formData.newEntrantForm.name,
-          existingEmployeeFormPath: `/documents/${formData.existingEmployeeForm.name}`,
-          existingEmployeeFileName: formData.existingEmployeeForm.name,
+          hmoName,
+          newEntrantFormPath: `/documents/${newEntrantForm.name}`,
+          newEntrantFileName: newEntrantForm.name,
+          existingEmployeeFormPath: `/documents/${existingEmployeeForm.name}`,
+          existingEmployeeFileName: existingEmployeeForm.name,
         };
 
         setManageHMOs((prevHMOs) => [newHMO, ...prevHMOs]);
