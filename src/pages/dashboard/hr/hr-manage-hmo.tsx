@@ -14,7 +14,6 @@ export default function ManageHMOPage() {
     isDialogOpen,
     hmoToDelete,
     formData,
-    isEditMode,
     isSubmitting,
     modalText,
     handleAddHMO,
@@ -185,4 +184,3 @@ export default function ManageHMOPage() {
     </div>
   );
 }
-
