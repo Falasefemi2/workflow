@@ -19,7 +19,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { CategorySelectionModal } from "@/components/shared/category-selection-modal";
 import type { CategoryBase } from "@/components/shared/category-selection-modal";
-import { hmoCategories } from "@/components/mockData";
+import {
+  exitRetirementCombinedCategories,
+  hmoCategories,
+} from "@/components/mockData";
 
 interface HRSetupCard {
   id: number;
@@ -115,6 +118,8 @@ const hrSetupCards: HRSetupCard[] = [
 export default function HRSystemSetupContent() {
   const navigate = useNavigate();
   const [isHMOModalOpen, setIsHMOModalOpen] = useState(false);
+  const [isExitRetirementModalOpen, setIsExitRetirementModalOpen] =
+    useState(false);
 
   const handleHMOCategorySelect = (category: CategoryBase) => {
     const routeMap: Record<string, string> = {
@@ -129,20 +134,40 @@ export default function HRSystemSetupContent() {
     }
   };
 
+  const handleExitCategorySelect = (category: CategoryBase) => {
+    const routeMap: Record<string, string> = {
+      "exit-approval": "/dashboard/hr/exit-approval",
+      "staff-exit-approval": "/dashboard/hr/staff-exit-approval",
+    };
+
+    const targetPath = routeMap[String(category.id)];
+    if (targetPath) {
+      navigate(targetPath);
+      setIsExitRetirementModalOpen(false);
+    }
+  };
+
   return (
     <div className="pb-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {hrSetupCards.map((card) => {
           const Icon = card.icon;
           const isHMOCard = card.modalType === "hmo";
+          const isExitRetirementCard = card.modalType === "exitretirement";
 
           return (
             <DashboardCard
               key={card.id}
               icon={<Icon className="w-6 h-6" />}
               title={card.title}
-              href={isHMOCard ? "" : card.href}
-              onClick={isHMOCard ? () => setIsHMOModalOpen(true) : undefined}
+              href={isHMOCard || isExitRetirementCard ? "" : card.href}
+              onClick={
+                isHMOCard
+                  ? () => setIsHMOModalOpen(true)
+                  : isExitRetirementCard
+                    ? () => setIsExitRetirementModalOpen(true)
+                    : undefined
+              }
             />
           );
         })}
@@ -155,6 +180,15 @@ export default function HRSystemSetupContent() {
         description="Choose the HMO set-up"
         categories={hmoCategories}
         onSelectCategory={handleHMOCategorySelect}
+      />
+
+      <CategorySelectionModal<CategoryBase>
+        isOpen={isExitRetirementModalOpen}
+        onClose={() => setIsExitRetirementModalOpen(false)}
+        title="Select from the category below"
+        description="Choose the exit approval"
+        categories={exitRetirementCombinedCategories}
+        onSelectCategory={handleExitCategorySelect}
       />
     </div>
   );
