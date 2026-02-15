@@ -38,7 +38,7 @@ export default function HrDashboard() {
     ) {
       return "system";
     }
-    if (pathname.startsWith("/dashboard/hr/candidates")) {
+    if (pathname.startsWith("/dashboard/hr/candidate")) {
       return "candidate";
     }
     if (pathname.startsWith("/dashboard/hr/employeeprofile")) {
