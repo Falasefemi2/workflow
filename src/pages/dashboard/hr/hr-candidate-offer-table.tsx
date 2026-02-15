@@ -71,7 +71,7 @@ export function CandidateOfferTable({
     <div className="overflow-x-auto border border-border/30 rounded-lg">
       <table className="w-full">
         <thead>
-          <tr className="bg-gray-50 border-b border-border/30">
+          <tr className="bg-muted/40 border-b border-border/30">
             <th className="px-6 py-4 text-left text-sm font-bold text-primary">
               S/N
             </th>

@@ -62,12 +62,12 @@ function StatCard({
   icon,
 }: StatCardProps) {
   return (
-    <Card className="bg-white border-0 shadow-sm">
+    <Card className="bg-card border-0 shadow-sm">
       <CardContent className="pt-6">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <p className="text-sm font-medium text-gray-600">{title}</p>
-            <p className="mt-2 text-3xl font-bold text-gray-900">{value}</p>
+            <p className="text-sm font-medium text-muted-foreground">{title}</p>
+            <p className="mt-2 text-3xl font-bold text-foreground">{value}</p>
             <div className="mt-2 flex items-center gap-1">
               <div
                 className={`flex items-center text-sm font-medium ${changeDirection === "up" ? "text-green-600" : "text-red-600"}`}
@@ -79,12 +79,12 @@ function StatCard({
                 )}
                 <span className="ml-1">{change}%</span>
               </div>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-muted-foreground">
                 from {previousValue}
               </span>
             </div>
           </div>
-          <div className="text-gray-400">{icon}</div>
+          <div className="text-muted-foreground">{icon}</div>
         </div>
       </CardContent>
     </Card>

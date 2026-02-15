@@ -35,10 +35,10 @@ export function DataTable<T extends { id?: string | number }>({
 }: DataTableProps<T>) {
   return (
     <div className="space-y-4">
-      <div className="border border-border/30 rounded-lg overflow-hidden bg-white">
+      <div className="border border-border/30 rounded-lg overflow-hidden bg-card">
         <Table>
           <TableHeader>
-            <TableRow className="border-b border-border/30 bg-gray-50/50">
+            <TableRow className="border-b border-border/30 bg-muted/40">
               <TableHead className="w-12">
                 <input type="checkbox" className="cursor-pointer" />
               </TableHead>
@@ -62,7 +62,7 @@ export function DataTable<T extends { id?: string | number }>({
             {data.map((row, index) => (
               <TableRow
                 key={row.id || index}
-                className="border-b border-border/30 hover:bg-gray-50/50"
+                className="border-b border-border/30 hover:bg-muted/40"
               >
                 <TableCell>
                   <input type="checkbox" className="cursor-pointer" />

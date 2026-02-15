@@ -7,7 +7,7 @@ export default function HrDashboard() {
   const location = useLocation();
 
   const tabTriggerClassName =
-    "!h-12 !py-0 !leading-none inline-flex items-center justify-center rounded-lg px-6 text-center font-semibold text-foreground/70 transition-all duration-300 hover:text-foreground hover:bg-secondary/30 data-[state=active]:bg-white data-[state=active]:text-foreground data-[state=active]:shadow-md data-[state=active]:border data-[state=active]:border-primary/30";
+    "!h-12 !py-0 !leading-none inline-flex items-center justify-center rounded-lg px-6 text-center font-semibold text-foreground/70 transition-all duration-300 hover:text-foreground hover:bg-secondary/30 data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-md data-[state=active]:border data-[state=active]:border-primary/30";
 
   const resolveActiveTab = () => {
     const { pathname } = location;
@@ -75,7 +75,7 @@ export default function HrDashboard() {
           onValueChange={handleTabChange}
           className="w-full"
         >
-          <TabsList className="grid h-auto! w-full grid-cols-5 gap-0 bg-white shadow-lg rounded-xl p-1 border border-border/30">
+          <TabsList className="grid h-auto! w-full grid-cols-5 gap-0 bg-card shadow-lg rounded-xl p-1 border border-border/30">
             <TabsTrigger value="dashboard" className={tabTriggerClassName}>
               Dashboard
             </TabsTrigger>
