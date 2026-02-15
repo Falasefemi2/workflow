@@ -20,13 +20,24 @@ export function CandidateOfferTabs({
     >
       <TabsList
         variant="line"
-        className="w-full grid grid-cols-2 md:grid-cols-4 p-0 rounded-none border-b border-border/30"
+        className="w-full grid grid-cols-2 md:grid-cols-4 p-0"
       >
         {tabs.map((tab) => (
           <TabsTrigger
             key={tab}
             value={tab}
-            className="rounded-none px-1 pb-4 pt-2 text-sm font-medium text-foreground/70 hover:text-foreground data-[state=active]:text-foreground data-[state=active]:shadow-none"
+            className="
+              rounded-none 
+              px-1 
+              pb-4 
+              pt-2 
+              text-sm 
+              font-medium 
+              text-foreground/70 
+              hover:text-foreground 
+              border-b-2 
+              border-transparent
+            "
           >
             {tab}
           </TabsTrigger>
