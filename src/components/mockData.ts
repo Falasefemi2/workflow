@@ -1440,3 +1440,718 @@ export const mockHMOOptions = [
     label: "Vanguard Health Plan",
   },
 ];
+
+export interface HandoverDocument {
+  id: string;
+  employeeName: string;
+  submissionDate: string;
+  documentFile: string;
+  filePath: string;
+}
+
+export const mockHandoverDocuments: HandoverDocument[] = [
+  {
+    id: "hd-1",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-2",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-3",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-4",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-5",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-6",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-7",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+  {
+    id: "hd-8",
+    employeeName: "Adeolu Olabanji",
+    submissionDate: "2025-10-05",
+    documentFile: "Oadeoluhandingovernotes.pdf",
+    filePath: "/documents/adeolu-handover.pdf",
+  },
+];
+
+export interface HandoverDocumentReview {
+  employeeName: string;
+  submissionDate: string;
+  documentFile: string;
+}
+
+export interface ExitInterview {
+  id: string;
+  employeeName: string;
+  disengagementDate: string;
+  department: string;
+  formData: ExitInterviewFormData;
+}
+
+export interface ExitInterviewFormData {
+  primaryReasonForLeaving: string;
+  triggerDecision: string;
+  mostSatisfying: string;
+  leastSatisfying: string;
+  trainingEffective: string;
+  adequateSupport: string;
+  performanceFeedback: string;
+  meritReviewProcess: string;
+  careeerGoals: string;
+  workplaceImprovement: string;
+  payBenefitsIncentives: string;
+  supervisionQuality: string;
+  supervisorManagement: string;
+  experienceSuccessFactors: string;
+  policiesObstacles: string;
+  newJobBenefits: string;
+  considReemployment: string;
+  recommendCompany: string;
+  overallFeelings: string;
+  mostLiked: string;
+  leastLiked: string;
+}
+
+export const mockExitInterviews: ExitInterview[] = [
+  {
+    id: "ei-1",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-2",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-3",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-4",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-5",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-6",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-7",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+  {
+    id: "ei-8",
+    employeeName: "Adeolu Olabanji",
+    disengagementDate: "2025-10-05",
+    department: "Business Transformation & Processes",
+    formData: {
+      primaryReasonForLeaving:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      triggerDecision: "No",
+      mostSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastSatisfying:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      trainingEffective:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      adequateSupport:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      performanceFeedback:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      meritReviewProcess:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      careeerGoals:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      workplaceImprovement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      payBenefitsIncentives:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisionQuality:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      supervisorManagement:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      experienceSuccessFactors:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      policiesObstacles:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      newJobBenefits:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      considReemployment:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      recommendCompany:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      overallFeelings:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      mostLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+      leastLiked:
+        "I have decided to pursue a new opportunity that aligns with my long-term career goals and offers further avenues for professional growth.",
+    },
+  },
+];
+
+export interface ClearanceFormApproval {
+  id: string;
+  staffName: string;
+  department: string;
+  designation: string;
+  dateEmployed: string;
+  dateOfLeavingService: string;
+  signature: string;
+  teamLeadSignature?: string;
+  hodSignature?: string;
+  systemNetworksSignature?: string;
+  financeSignature?: string;
+  hcmSignature?: string;
+  comment?: string;
+  idCard?: boolean;
+  officialKeys?: boolean;
+  staffHandbook?: boolean;
+  appendSignature?: boolean;
+}
+
+export const mockClearanceFormApprovals: ClearanceFormApproval[] = [
+  {
+    id: "cfa-1",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-2",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-3",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-4",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-5",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-6",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-7",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+  {
+    id: "cfa-8",
+    staffName: "Adeolu Olabanji",
+    department: "Business Transformation & Processes",
+    designation: "Product Management",
+    dateEmployed: "2019-10-02",
+    dateOfLeavingService: "2021-10-02",
+    signature: "Adeolu",
+    comment: "Clearance Approved",
+  },
+];
+
+export type ExitRetirementType =
+  | "Voluntary"
+  | "Termination"
+  | "Resignation"
+  | "Medical"
+  | "Death in Service";
+
+export interface ClearanceReport {
+  id: string;
+  staffName: string;
+  exitRetirementType: ExitRetirementType;
+  department: string;
+  dateOfExit: string;
+  designation?: string;
+  dateEmployed?: string;
+  dateOfLeavingService?: string;
+  signature?: string;
+  teamLeadDate?: string;
+  teamLeadSignature?: string;
+}
+
+export const mockClearanceReports: ClearanceReport[] = [
+  {
+    id: "cr-1",
+    staffName: "Adeolu Olabanji",
+    exitRetirementType: "Voluntary",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Product Management",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "Adeolu",
+  },
+  {
+    id: "cr-2",
+    staffName: "Adeolu Olabanji",
+    exitRetirementType: "Termination",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Senior Manager",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "Adeolu",
+  },
+  {
+    id: "cr-3",
+    staffName: "Adeolu Olabanji",
+    exitRetirementType: "Resignation",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Team Lead",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "Adeolu",
+  },
+  {
+    id: "cr-4",
+    staffName: "Adeolu Olabanji",
+    exitRetirementType: "Medical",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "HR Officer",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "Adeolu",
+  },
+  {
+    id: "cr-5",
+    staffName: "John Doe",
+    exitRetirementType: "Death in Service",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Finance Manager",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "John",
+  },
+  {
+    id: "cr-6",
+    staffName: "Adeolu Olabanji",
+    exitRetirementType: "Voluntary",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Developer",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "Adeolu",
+  },
+  {
+    id: "cr-7",
+    staffName: "John Doe",
+    exitRetirementType: "Death in Service",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Operations Lead",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "John",
+  },
+  {
+    id: "cr-8",
+    staffName: "Adeolu Olabanji",
+    exitRetirementType: "Termination",
+    department: "10/12/2025",
+    dateOfExit: "10/12/2025",
+    designation: "Consultant",
+    dateEmployed: "10/02/2019",
+    dateOfLeavingService: "10/02/2021",
+    signature: "Adeolu",
+  },
+];

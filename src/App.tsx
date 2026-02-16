@@ -30,9 +30,15 @@ import StaffExitApprovalPage from "./pages/dashboard/hr/hr-staff-exit-approval";
 import CandidateOfferPage from "./pages/dashboard/hr/hr-candidate-offer";
 import { ThemeProvider } from "./components/theme-provider";
 import HRMenuContent from "./pages/dashboard/hr/menu/menu-content";
-import MenuPlaceholderPage from "./pages/dashboard/hr/menu/menu-placeholder-page";
 import LeavePlanningPage from "./pages/dashboard/hr/menu/leave-planning";
 import HMOPage from "./pages/dashboard/hr/menu/hmo";
+import HandoverDocumentPage from "./pages/dashboard/hr/menu/handover-document";
+import ExitInterviewPage from "./pages/dashboard/hr/menu/exit-interview-page";
+import ClearanceFormApprovalPage from "./pages/dashboard/hr/menu/clearanceform-approvalpage";
+import ClearanceReportPage from "./pages/dashboard/hr/menu/clearance-reportpage";
+import ExitRetirementPage from "./pages/dashboard/hr/menu/exitretirementpage";
+import EMemoRegistrationPage from "./pages/dashboard/hr/menu/ememo-registration";
+import EMemoTrackerPage from "./pages/dashboard/hr/menu/ememo-tracker";
 
 function App() {
   return (
@@ -96,31 +102,28 @@ function App() {
           <Route path="menu/hmo" element={<HMOPage />} />
           <Route
             path="menu/ememo-registration"
-            element={<MenuPlaceholderPage title="E-Memo Registration" />}
+            element={<EMemoRegistrationPage />}
           />
           <Route
             path="menu/ememo-tracker"
-            element={<MenuPlaceholderPage title="E-Memo Tracker" />}
+            element={<EMemoTrackerPage />}
           />
-          <Route
-            path="menu/exit-retirement"
-            element={<MenuPlaceholderPage title="Exit/Retirement" />}
-          />
+          <Route path="menu/exit-retirement" element={<ExitRetirementPage />} />
           <Route
             path="menu/handover-documents"
-            element={<MenuPlaceholderPage title="Handover Documents" />}
+            element={<HandoverDocumentPage />}
           />
           <Route
             path="menu/exit-interviews-forms"
-            element={<MenuPlaceholderPage title="Exit Interviews & Forms" />}
+            element={<ExitInterviewPage />}
           />
           <Route
             path="menu/clearance-form-approval"
-            element={<MenuPlaceholderPage title="Clearance Form Approval" />}
+            element={<ClearanceFormApprovalPage />}
           />
           <Route
             path="menu/clearance-report"
-            element={<MenuPlaceholderPage title="Clearance Report" />}
+            element={<ClearanceReportPage />}
           />
         </Route>
       </Routes>
