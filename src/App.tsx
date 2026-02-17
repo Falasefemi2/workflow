@@ -28,6 +28,7 @@ import OnboardingDocumentPage from "./pages/dashboard/hr/hr-onboarding-docs";
 import ExitApprovalPage from "./pages/dashboard/hr/hr-exit-approval";
 import StaffExitApprovalPage from "./pages/dashboard/hr/hr-staff-exit-approval";
 import CandidateOfferPage from "./pages/dashboard/hr/hr-candidate-offer";
+import EmployeeProfileManagementPage from "./pages/dashboard/hr/hr-employee-profile";
 import { ThemeProvider } from "./components/theme-provider";
 import HRMenuContent from "./pages/dashboard/hr/menu/menu-content";
 import LeavePlanningPage from "./pages/dashboard/hr/menu/leave-planning";
@@ -97,6 +98,11 @@ function App() {
           <Route path="units" element={<UnitManagementPage />} />
           <Route path="onboarding" element={<OnboardingDocumentPage />} />
           <Route path="candidate" element={<CandidateOfferPage />} />
+          <Route path="employee" element={<EmployeeProfileManagementPage />} />
+          <Route
+            path="employeeprofile"
+            element={<EmployeeProfileManagementPage />}
+          />
           <Route path="menu" element={<HRMenuContent />} />
           <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
           <Route path="menu/hmo" element={<HMOPage />} />
@@ -104,10 +110,7 @@ function App() {
             path="menu/ememo-registration"
             element={<EMemoRegistrationPage />}
           />
-          <Route
-            path="menu/ememo-tracker"
-            element={<EMemoTrackerPage />}
-          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
           <Route path="menu/exit-retirement" element={<ExitRetirementPage />} />
           <Route
             path="menu/handover-documents"

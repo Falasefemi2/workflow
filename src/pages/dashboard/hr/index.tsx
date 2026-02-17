@@ -41,7 +41,10 @@ export default function HrDashboard() {
     if (pathname.startsWith("/dashboard/hr/candidate")) {
       return "candidate";
     }
-    if (pathname.startsWith("/dashboard/hr/employeeprofile")) {
+    if (
+      pathname.startsWith("/dashboard/hr/employee") ||
+      pathname.startsWith("/dashboard/hr/employeeprofile")
+    ) {
       return "employee";
     }
     if (pathname.startsWith("/dashboard/hr/menu")) {
@@ -86,7 +89,7 @@ export default function HrDashboard() {
               System Setup
             </TabsTrigger>
             <TabsTrigger value="employee" className={tabTriggerClassName}>
-              Employee Profile
+              Employee Profile Management
             </TabsTrigger>
             <TabsTrigger value="menu" className={tabTriggerClassName}>
               My Menu
