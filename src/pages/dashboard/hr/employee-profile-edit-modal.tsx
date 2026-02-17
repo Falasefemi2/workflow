@@ -159,11 +159,21 @@ export function EmployeeProfileEditModal({
 }: EmployeeProfileEditModalProps) {
   const [formData, setFormData] = useState<EditProfileFormData | null>(null);
 
+  // useEffect(() => {
+  //   if (user && isOpen) {
+  //     setFormData(createFormDataFromUser(user));
+  //   }
+  // }, [isOpen, user]);
+
   useEffect(() => {
-    if (user && isOpen) {
-      setFormData(createFormDataFromUser(user));
-    }
-  }, [isOpen, user]);
+    if (!isOpen) return;
+
+    const id = setTimeout(() => {
+      setFormData(user ? createFormDataFromUser(user) : null);
+    }, 0);
+
+    return () => clearTimeout(id);
+  }, [isOpen, user?.id]);
 
   if (!user || !formData) {
     return null;
@@ -246,11 +256,11 @@ export function EmployeeProfileEditModal({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         showCloseButton={false}
-        className="w-screen sm:w-screen sm:max-w-none max-w-none overflow-hidden p-0 flex flex-col"
-        style={{ maxHeight: "92vh" }}
+        className="h-[92vh] w-screen sm:w-screen sm:max-w-none max-w-none p-0 flex flex-col overflow-hidden"
+        // style={{ maxHeight: "92vh" }}
       >
         <div className="flex h-full flex-col">
-          <div className="border-b border-border/30 px-6 py-4">
+          <div className="border-b border-border/30 px-6 py-4 shrink-0">
             <button
               type="button"
               onClick={onClose}
