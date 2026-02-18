@@ -20,8 +20,10 @@ import {
 import { useHMOManagement } from "@/hooks/use-hmo";
 import { mockHMOOptions } from "@/components/mockData";
 import { Download } from "lucide-react";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 
 export default function HMOPage() {
+  const menuBasePath = useMenuBasePath();
   const {
     employeeHMOs,
     isApplyHMODialogOpen,
@@ -38,7 +40,7 @@ export default function HMOPage() {
     <div className="pb-12">
       <PageHeader
         title="HMO"
-        backTo="/dashboard/hr/menu"
+        backTo={menuBasePath}
         actionLabel="Apply for HMO"
         onActionClick={handleApplyHMO}
       />

@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 
 type Step = 1 | 2 | 3;
 
@@ -34,6 +35,7 @@ const initialDocuments: DocumentItem[] = [
 
 export default function EMemoRegistrationPage() {
   const navigate = useNavigate();
+  const menuBasePath = useMenuBasePath();
   const [step, setStep] = useState<Step>(1);
   const [memoTo, setMemoTo] = useState("");
   const [memoTitle, setMemoTitle] = useState("");
@@ -405,7 +407,7 @@ export default function EMemoRegistrationPage() {
         <div className="max-w-6xl px-6 py-4 flex items-center gap-8">
           <button
             type="button"
-            onClick={() => navigate("/dashboard/hr/menu")}
+            onClick={() => navigate(menuBasePath)}
             className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-5 h-5 text-primary" />

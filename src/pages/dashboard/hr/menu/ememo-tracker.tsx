@@ -16,6 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 
 type MemoStatus = "Pending" | "Rejected" | "Approved";
 
@@ -121,6 +122,7 @@ const getStatusClassName = (status: MemoStatus) => {
 
 export default function EMemoTrackerPage() {
   const navigate = useNavigate();
+  const menuBasePath = useMenuBasePath();
   const [selectedMemo, setSelectedMemo] = useState<EMemoTrackerItem | null>(
     null,
   );
@@ -131,7 +133,7 @@ export default function EMemoTrackerPage() {
         <div className="max-w-300 px-6 py-4 flex items-center gap-8">
           <button
             type="button"
-            onClick={() => navigate("/dashboard/hr/menu")}
+            onClick={() => navigate(menuBasePath)}
             className="inline-flex items-center gap-2 text-primary transition-colors"
           >
             <ArrowLeft className="w-5 h-5 text-primary" />
@@ -173,9 +175,7 @@ export default function EMemoTrackerPage() {
                     {row.status === "Rejected" ? (
                       <button
                         type="button"
-                        onClick={() =>
-                          navigate("/dashboard/hr/menu/ememo-registration")
-                        }
+                        onClick={() => navigate(`${menuBasePath}/ememo-registration`)}
                         className="inline-flex items-center gap-1 text-primary text-sm"
                       >
                         Edit
