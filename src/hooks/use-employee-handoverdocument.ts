@@ -38,11 +38,10 @@ export function useEmployeeHandoverDocumentsManagement() {
     setSelectedDocumentForReview(null);
   };
 
-  const handleViewFile = (document: EmployeeHandoverDocument) => {
-    // In a real app, this would open the file in a viewer or download it
+  const handleViewFile = (doc: EmployeeHandoverDocument) => {
     const link = document.createElement("a");
-    link.href = document.filePath;
-    link.download = document.documentFile;
+    link.href = doc.filePath;
+    link.download = doc.documentFile;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
