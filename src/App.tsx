@@ -46,7 +46,14 @@ import HandoverDocumentsFormPage from "./pages/dashboard/employee/menu/handover-
 import ExitInterviewFormPage from "./pages/dashboard/employee/menu/exit-interview-form";
 import ClearanceFormPage from "./pages/dashboard/employee/menu/clearance-form";
 import EmployeeClearanceReportPage from "./pages/dashboard/employee/menu/resignation-form";
-
+import EmployeeProfilePage from "./pages/dashboard/employee/profile";
+import EmployeeProfileBioDataPage from "./pages/dashboard/employee/profile/bio-data";
+import EmployeeProfileEmploymentReferencePage from "./pages/dashboard/employee/profile/employment-reference";
+import EmployeeProfileEmploymentDocumentPage from "./pages/dashboard/employee/profile/employment-document";
+import EmployeeProfilePayrollInformationPage from "./pages/dashboard/employee/profile/payroll-information";
+import EmployeeProfileWorkflowPolicyPage from "./pages/dashboard/employee/profile/workflow-policy";
+import EmployeeProfileDocumentsPage from "./pages/dashboard/employee/profile/documents";
+import EmployeeProfileReadMeListPage from "./pages/dashboard/employee/profile/read-me-list";
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -163,6 +170,34 @@ function App() {
             element={<ExitInterviewFormPage />}
           />
           <Route path="menu/clearance-form" element={<ClearanceFormPage />} />
+          <Route path="profile" element={<EmployeeProfilePage />}>
+            <Route index element={<Navigate to="bio-data" replace />} />
+            <Route path="bio-data" element={<EmployeeProfileBioDataPage />} />
+            <Route
+              path="employment-reference"
+              element={<EmployeeProfileEmploymentReferencePage />}
+            />
+            <Route
+              path="employment-document"
+              element={<EmployeeProfileEmploymentDocumentPage />}
+            />
+            <Route
+              path="payroll-information"
+              element={<EmployeeProfilePayrollInformationPage />}
+            />
+            <Route
+              path="workflow-policy"
+              element={<EmployeeProfileWorkflowPolicyPage />}
+            />
+            <Route
+              path="documents"
+              element={<EmployeeProfileDocumentsPage />}
+            />
+            <Route
+              path="read-me-list"
+              element={<EmployeeProfileReadMeListPage />}
+            />
+          </Route>
         </Route>
       </Routes>
     </ThemeProvider>
