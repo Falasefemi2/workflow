@@ -2912,3 +2912,320 @@ export const mockEmployeeClearanceReports: EmployeeClearanceReport[] = [
     teamLeadSignature: "Team Lead Signature",
   },
 ];
+
+export interface EmployeeBioData {
+  title: string;
+  surname: string;
+  middleName: string;
+  firstName: string;
+  staffId: string;
+  emailAddress: string;
+  dateOfBirth: string;
+  maritalStatus: string;
+  gender: string;
+  phoneNumber: string;
+  nationality: string;
+  stateOfOrigin: string;
+}
+
+export interface GuarantorInfo {
+  title: string;
+  surname: string;
+  middleName: string;
+  firstName: string;
+}
+
+export interface ChangeNameRequest {
+  nameToChange: string; // Which part: title, surname, middleName, firstName
+  newName: string;
+  reasonForChange: string;
+  supportingDocument: File | null;
+}
+
+export const mockEmployeeBioData: EmployeeBioData = {
+  title: "Mr",
+  surname: "Alabi",
+  middleName: "Opeyemi",
+  firstName: "Qudus",
+  staffId: "oalabi",
+  emailAddress: "oalabi@vatebra.com",
+  dateOfBirth: "2023-04-27",
+  maritalStatus: "Married",
+  gender: "Male",
+  phoneNumber: "08083234042",
+  nationality: "Nigeria",
+  stateOfOrigin: "Lagos",
+};
+
+export const mockGuarantors: GuarantorInfo[] = [
+  {
+    title: "Mr",
+    surname: "Alabi",
+    middleName: "Opeyemi",
+    firstName: "Qudus",
+  },
+  {
+    title: "Mr",
+    surname: "Alabi",
+    middleName: "Opeyemi",
+    firstName: "Qudus",
+  },
+];
+
+export const nameChangeOptions = [
+  { value: "title", label: "Title" },
+  { value: "surname", label: "Surname" },
+  { value: "middleName", label: "Middle Name" },
+  { value: "firstName", label: "First Name" },
+];
+
+export const maritalStatusOptions = [
+  { value: "Single", label: "Single" },
+  { value: "Married", label: "Married" },
+  { value: "Divorced", label: "Divorced" },
+  { value: "Widowed", label: "Widowed" },
+];
+
+export const genderOptions = [
+  { value: "Male", label: "Male" },
+  { value: "Female", label: "Female" },
+  { value: "Other", label: "Other" },
+];
+
+export interface EmploymentReference {
+  id: string;
+  companyName: string;
+  designation: string;
+  periodOfWorkStart: string;
+  periodOfWorkEnd: string;
+  responsibilities: string;
+  contactOfHOD: string;
+  hodEmail: string;
+  contactOfHR: string;
+  hrEmail: string;
+}
+
+export const mockEmploymentReferences: EmploymentReference[] = [
+  {
+    id: "er-1",
+    companyName: "Vatebra Hub Lagos",
+    designation: "UI/UX Designer",
+    periodOfWorkStart: "2022-08-01",
+    periodOfWorkEnd: "2024-08-01",
+    responsibilities: "N/A",
+    contactOfHOD: "08083947729",
+    hodEmail: "contact@vatebra.com",
+    contactOfHR: "08083947729",
+    hrEmail: "contact@vatebra.com",
+  },
+];
+
+export interface EmployeeDocument {
+  id: string;
+  name: string;
+  file: File | null;
+  filePath?: string;
+}
+
+export interface AcademicDocuments {
+  firstSchoolLeavingCertificate: EmployeeDocument;
+  universityCertificate: EmployeeDocument;
+  nyscCertificate: EmployeeDocument;
+  birthCertificate: EmployeeDocument;
+}
+
+export interface OtherDocuments {
+  changeOfName: EmployeeDocument;
+  additionalDocuments: EmployeeDocument[];
+}
+
+export const documentTypeOptions = [
+  { value: "first-school", label: "First School Leaving Certificate" },
+  { value: "university", label: "University Certificate" },
+  { value: "nysc", label: "NYSC Certificate" },
+  { value: "birth", label: "Birth Certificate" },
+  { value: "change-of-name", label: "Change of Name" },
+  { value: "passport", label: "Passport" },
+  { value: "driver-license", label: "Driver's License" },
+  { value: "other", label: "Other Document" },
+];
+
+export const mockAcademicDocuments: AcademicDocuments = {
+  firstSchoolLeavingCertificate: {
+    id: "ac-1",
+    name: "First School Leaving Certificate",
+    file: null,
+    filePath: "",
+  },
+  universityCertificate: {
+    id: "ac-2",
+    name: "University Certificate",
+    file: null,
+    filePath: "",
+  },
+  nyscCertificate: {
+    id: "ac-3",
+    name: "NYSC Certificate",
+    file: null,
+    filePath: "",
+  },
+  birthCertificate: {
+    id: "ac-4",
+    name: "Birth Certificate",
+    file: null,
+    filePath: "",
+  },
+};
+
+export const mockOtherDocuments: OtherDocuments = {
+  changeOfName: {
+    id: "od-1",
+    name: "Change of Name",
+    file: null,
+    filePath: "",
+  },
+  additionalDocuments: [],
+};
+
+export interface PayrollInformation {
+  accountHolderName: string;
+  bankName: string;
+  accountNumber: string;
+  bvn: string;
+  sortCode: string;
+  pensionRSA: string;
+  taxIDNumber: string;
+  nhfNumber: string;
+  ninNumber: string;
+}
+
+export const bankOptions = [
+  { value: "gtbank", label: "Guaranty Trust Bank" },
+  { value: "firstbank", label: "First Bank of Nigeria" },
+  { value: "zenith", label: "Zenith Bank" },
+  { value: "access", label: "Access Bank" },
+  { value: "uba", label: "United Bank for Africa" },
+  { value: "standard", label: "Standard Chartered Bank" },
+  { value: "hsbc", label: "HSBC Bank" },
+  { value: "fcmb", label: "First City Monument Bank" },
+  { value: "stanbic", label: "Stanbic IBTC Bank" },
+  { value: "ecobank", label: "Ecobank" },
+];
+
+export const mockPayrollInformation: PayrollInformation = {
+  accountHolderName: "Qudus Alabi",
+  bankName: "gtbank",
+  accountNumber: "",
+  bvn: "",
+  sortCode: "",
+  pensionRSA: "",
+  taxIDNumber: "",
+  nhfNumber: "",
+  ninNumber: "N/A",
+};
+
+export interface WorkPolicy {
+  id: string;
+  title: string;
+  policyUrl: string;
+  description: string;
+  signed: boolean;
+  signedDate?: string;
+  signature?: string;
+}
+
+export const mockWorkflowPolicies: WorkPolicy[] = [
+  {
+    id: "policy-1",
+    title: "EQUALITY & DIVERSITY POLICY",
+    policyUrl:
+      "https://vatebra-my.sharepoint.com/:x:/p/ooduntan/EdVil8s2aNBpWtxvG2xMk4BpLGNBzyQSjd8HGGa_U7cQ?e=kcAfxn",
+    description:
+      "This policy outlines Vatebra's commitment to equality and diversity in the workplace.",
+    signed: false,
+    signature: "",
+  },
+];
+
+export const policyNote =
+  "Please note that appending your signature means that you've read and accepted the terms stated in the document.";
+
+export type DocumentType = "policy" | "form" | "other";
+
+export type DocumentVariant = "blue" | "red" | "amber" | "green";
+
+export interface Document {
+  id: string;
+  title: string;
+  type: DocumentType;
+  variant: DocumentVariant;
+  downloadable: boolean;
+  filePath?: string;
+  marked: boolean;
+}
+
+export interface ReadmeItem {
+  id: string;
+  title: string;
+  type: DocumentType;
+  marked: boolean;
+}
+
+export const mockDocuments: Document[] = [
+  {
+    id: "doc-1",
+    title: "HANDBOOK",
+    type: "policy",
+    variant: "blue",
+    downloadable: false,
+    marked: false,
+  },
+  {
+    id: "doc-2",
+    title: "IT POLICY",
+    type: "policy",
+    variant: "red",
+    downloadable: false,
+    marked: false,
+  },
+  {
+    id: "doc-3",
+    title: "REMOTE WORK POLICY",
+    type: "policy",
+    variant: "amber",
+    downloadable: false,
+    marked: false,
+  },
+  {
+    id: "doc-4",
+    title: "RESUMPTION OF DUTY FORM",
+    type: "form",
+    variant: "green",
+    downloadable: true,
+    filePath: "/documents/resumption-form.pdf",
+    marked: false,
+  },
+];
+
+export type ReadmeType = "policy" | "other";
+
+export const mockReadmeList: ReadmeItem[] = [
+  {
+    id: "readme-1",
+    title: "BRAND DOCUMENT",
+    type: "other",
+    marked: false,
+  },
+  {
+    id: "readme-2",
+    title: "BPR DOCUMENT",
+    type: "other",
+    marked: false,
+  },
+  {
+    id: "readme-3",
+    title: "ISO POLICY",
+    type: "policy",
+    marked: false,
+  },
+];
