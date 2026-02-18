@@ -124,8 +124,8 @@ export function EmployeeProfileViewModal({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
         showCloseButton={false}
-        className="w-screen sm:w-screen sm:max-w-none max-w-none overflow-hidden p-0 flex flex-col"
-        style={{ maxHeight: "92vh" }}
+        className="h-[92vh] w-screen sm:w-screen sm:max-w-none max-w-none p-0 flex flex-col overflow-hidden"
+        // style={{ maxHeight: "92vh" }}
       >
         <div className="flex h-full flex-col">
           {/* Header - Fixed */}
@@ -141,9 +141,9 @@ export function EmployeeProfileViewModal({
           </div>
 
           {/* Scrollable Content */}
-          <ScrollArea className="flex-1 overflow-hidden">
-            <div className="p-6">
-              <div className="grid grid-cols-1 gap-6 xl:grid-cols-[220px_1fr] auto-rows-max">
+          <ScrollArea className="flex-1 overflow-y-auto">
+            <div className="p-6 pr-4">
+              <div className="grid grid-cols-1 gap-6 xl:grid-cols-[220px_1fr]">
                 {/* Avatar Section */}
                 <div>
                   <Avatar className="h-72! w-full! rounded-md! border border-border/30">
