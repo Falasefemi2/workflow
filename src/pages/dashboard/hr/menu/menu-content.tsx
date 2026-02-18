@@ -11,6 +11,7 @@ import {
   ememoCategories,
   exitRetirementCategories,
 } from "@/components/mockData";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 
 export interface HRMenuCard {
   id: number;
@@ -20,45 +21,49 @@ export interface HRMenuCard {
   modelType?: "ememo" | "exitretirement";
 }
 
-const hrMenuSetup: HRMenuCard[] = [
-  {
-    id: 1,
-    title: "LEAVE PLANNING",
-    icon: Calendar,
-    href: "/dashboard/hr/menu/leave-planning",
-  },
-  {
-    id: 2,
-    title: "HMO",
-    icon: Heart,
-    href: "/dashboard/hr/menu/hmo",
-  },
+const baseCards: Omit<HRMenuCard, "href">[] = [
+  { id: 1, title: "LEAVE PLANNING", icon: Calendar },
+  { id: 2, title: "HMO", icon: Heart },
   {
     id: 3,
     title: "EXIT/RETIREMENT",
     icon: LogOut,
-    href: "",
     modelType: "exitretirement",
   },
-  {
-    id: 4,
-    title: "E-MEMO",
-    icon: Mail,
-    href: "",
-    modelType: "ememo",
-  },
+  { id: 4, title: "E-MEMO", icon: Mail, modelType: "ememo" },
 ];
 
-export default function HRMenuContent() {
+interface RoleMenuContentProps {
+  menuBasePath?: string;
+  exitRetirementMenuCategories?: CategoryBase[];
+  exitRetirementRouteMap?: Record<string, string>;
+}
+
+export function RoleMenuContent({
+  menuBasePath,
+  exitRetirementMenuCategories,
+  exitRetirementRouteMap,
+}: RoleMenuContentProps) {
   const navigate = useNavigate();
+  const resolvedMenuBasePath = useMenuBasePath();
+  const basePath = menuBasePath || resolvedMenuBasePath;
   const [isEmemoModalOpen, setIsEmemoModalOpen] = useState(false);
   const [isExitRetirementModalOpen, setIsExitRetirementModalOpen] =
     useState(false);
+  const menuCards = baseCards.map((card) => ({
+    ...card,
+    href:
+      card.id === 1
+        ? `${basePath}/leave-planning`
+        : card.id === 2
+          ? `${basePath}/hmo`
+          : "",
+  }));
 
   const handleEmemoCategorySelect = (category: CategoryBase) => {
     const routeMap: Record<string, string> = {
-      "ememo-registration": "/dashboard/hr/menu/ememo-registration",
-      "ememo-tracker": "/dashboard/hr/menu/ememo-tracker",
+      "ememo-registration": `${basePath}/ememo-registration`,
+      "ememo-tracker": `${basePath}/ememo-tracker`,
     };
     const targetPath = routeMap[String(category.id)];
     if (targetPath) {
@@ -68,13 +73,14 @@ export default function HRMenuContent() {
   };
 
   const handleExitRetirementCategorySelect = (category: CategoryBase) => {
-    const routeMap: Record<string, string> = {
-      "exit-retirement": "/dashboard/hr/menu/exit-retirement",
-      "handover-documents": "/dashboard/hr/menu/handover-documents",
-      "exit-interviews-forms": "/dashboard/hr/menu/exit-interviews-forms",
-      "clearance-form-approval": "/dashboard/hr/menu/clearance-form-approval",
-      "clearance-report": "/dashboard/hr/menu/clearance-report",
+    const defaultRouteMap: Record<string, string> = {
+      "exit-retirement": `${basePath}/exit-retirement`,
+      "handover-documents": `${basePath}/handover-documents`,
+      "exit-interviews-forms": `${basePath}/exit-interviews-forms`,
+      "clearance-form-approval": `${basePath}/clearance-form-approval`,
+      "clearance-report": `${basePath}/clearance-report`,
     };
+    const routeMap = exitRetirementRouteMap ?? defaultRouteMap;
     const targetPath = routeMap[String(category.id)];
     if (targetPath) {
       navigate(targetPath);
@@ -85,13 +91,14 @@ export default function HRMenuContent() {
   return (
     <div className="pb-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {hrMenuSetup.map((card) => {
+        {menuCards.map((card) => {
           const Icon = card.icon;
           const isEmemoCard = card.modelType === "ememo";
           const isExitRetirementCard = card.modelType === "exitretirement";
 
           return (
             <DashboardCard
+              key={card.id}
               icon={<Icon className="w-6 h-6" />}
               title={card.title}
               href={isEmemoCard || isExitRetirementCard ? "" : card.href}
@@ -121,9 +128,13 @@ export default function HRMenuContent() {
         onClose={() => setIsExitRetirementModalOpen(false)}
         title="Select from the category below"
         description="Choose the exit approval"
-        categories={exitRetirementCategories}
+        categories={exitRetirementMenuCategories ?? exitRetirementCategories}
         onSelectCategory={handleExitRetirementCategorySelect}
       />
     </div>
   );
+}
+
+export default function HRMenuContent() {
+  return <RoleMenuContent menuBasePath="/dashboard/hr/menu" />;
 }

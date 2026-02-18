@@ -19,6 +19,7 @@ import {
 } from "@/hooks/use-plan-annual-leave";
 import { DeleteConfirmDialog } from "@/components/shared/delete-confirm-dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 
 interface ApplyForLeaveRecord {
   id: number;
@@ -131,6 +132,7 @@ const addDays = (base: Date, days: number) => {
 };
 
 export default function LeavePlanningPage() {
+  const menuBasePath = useMenuBasePath();
   const [activeTab, setActiveTab] = useState<
     "plan-annual-leave" | "apply-for-leave"
   >("plan-annual-leave");
@@ -238,7 +240,7 @@ export default function LeavePlanningPage() {
     <div className="pb-12">
       <PageHeader
         title="Leave Planning"
-        backTo="/dashboard/hr/menu"
+        backTo={menuBasePath}
         actionLabel={currentActionLabel}
         onActionClick={onHeaderActionClick}
       />

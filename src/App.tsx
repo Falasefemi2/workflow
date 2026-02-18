@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import LoginPage from "./pages/auth/login-page";
 import ForgotPasswordPage from "./pages/auth/forgot-password-page";
 import ResetPasswordPage from "./pages/auth/reset-password-page";
@@ -40,6 +40,12 @@ import ClearanceReportPage from "./pages/dashboard/hr/menu/clearance-reportpage"
 import ExitRetirementPage from "./pages/dashboard/hr/menu/exitretirementpage";
 import EMemoRegistrationPage from "./pages/dashboard/hr/menu/ememo-registration";
 import EMemoTrackerPage from "./pages/dashboard/hr/menu/ememo-tracker";
+import EmployeeDashboard from "./pages/dashboard/employee";
+import EmployeeMenuContent from "./pages/dashboard/employee/menu/employee-menu-setup";
+import HandoverDocumentsFormPage from "./pages/dashboard/employee/menu/handover-documents-form";
+import ExitInterviewFormPage from "./pages/dashboard/employee/menu/exit-interview-form";
+import ClearanceFormPage from "./pages/dashboard/employee/menu/clearance-form";
+import EmployeeClearanceReportPage from "./pages/dashboard/employee/menu/resignation-form";
 
 function App() {
   return (
@@ -128,6 +134,35 @@ function App() {
             path="menu/clearance-report"
             element={<ClearanceReportPage />}
           />
+        </Route>
+
+        {/* EMPLOYEE routes */}
+        <Route path="/dashboard/employee" element={<EmployeeDashboard />}>
+          <Route index element={<EmployeeMenuContent />} />
+          <Route
+            path="menu"
+            element={<Navigate to="/dashboard/employee" replace />}
+          />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<EMemoRegistrationPage />}
+          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
+          <Route
+            path="menu/clerance-report"
+            element={<EmployeeClearanceReportPage />}
+          />
+          <Route
+            path="menu/handover-documents-form"
+            element={<HandoverDocumentsFormPage />}
+          />
+          <Route
+            path="menu/exit-interview-form"
+            element={<ExitInterviewFormPage />}
+          />
+          <Route path="menu/clearance-form" element={<ClearanceFormPage />} />
         </Route>
       </Routes>
     </ThemeProvider>
