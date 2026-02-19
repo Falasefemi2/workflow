@@ -37,12 +37,14 @@ interface RoleMenuContentProps {
   menuBasePath?: string;
   exitRetirementMenuCategories?: CategoryBase[];
   exitRetirementRouteMap?: Record<string, string>;
+  additionalCards?: HRMenuCard[];
 }
 
 export function RoleMenuContent({
   menuBasePath,
   exitRetirementMenuCategories,
   exitRetirementRouteMap,
+  additionalCards = [],
 }: RoleMenuContentProps) {
   const navigate = useNavigate();
   const resolvedMenuBasePath = useMenuBasePath();
@@ -50,15 +52,18 @@ export function RoleMenuContent({
   const [isEmemoModalOpen, setIsEmemoModalOpen] = useState(false);
   const [isExitRetirementModalOpen, setIsExitRetirementModalOpen] =
     useState(false);
-  const menuCards = baseCards.map((card) => ({
-    ...card,
-    href:
-      card.id === 1
-        ? `${basePath}/leave-planning`
-        : card.id === 2
-          ? `${basePath}/hmo`
-          : "",
-  }));
+  const menuCards = [
+    ...baseCards.map((card) => ({
+      ...card,
+      href:
+        card.id === 1
+          ? `${basePath}/leave-planning`
+          : card.id === 2
+            ? `${basePath}/hmo`
+            : "",
+    })),
+    ...additionalCards,
+  ];
 
   const handleEmemoCategorySelect = (category: CategoryBase) => {
     const routeMap: Record<string, string> = {

@@ -54,6 +54,15 @@ import EmployeeProfilePayrollInformationPage from "./pages/dashboard/employee/pr
 import EmployeeProfileWorkflowPolicyPage from "./pages/dashboard/employee/profile/workflow-policy";
 import EmployeeProfileDocumentsPage from "./pages/dashboard/employee/profile/documents";
 import EmployeeProfileReadMeListPage from "./pages/dashboard/employee/profile/read-me-list";
+import HODDashboard from "./pages/dashboard/hod";
+import HODMenuContent from "./pages/dashboard/hod/menu/hod-menu-setup";
+import ResignationFormApprovalPage from "./pages/dashboard/hod/menu/resignationapprovalformpage";
+import HODClearanceFormApprovalPage from "./pages/dashboard/hod/menu/clearanceformapprovalpage";
+import HandoverDocumentsApprovalPage from "./pages/dashboard/hod/menu/handoverdocumentsapprovalpage";
+import HODClearanceReportPage from "./pages/dashboard/hod/menu/clearancereportpage";
+import LeaveApprovalReviewPage from "./pages/dashboard/hod/menu/leaveapprovalpage";
+import MemoApprovalPageUpdated from "./pages/dashboard/hod/menu/memoapprovalpage";
+
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
@@ -170,6 +179,80 @@ function App() {
             element={<ExitInterviewFormPage />}
           />
           <Route path="menu/clearance-form" element={<ClearanceFormPage />} />
+          <Route path="profile" element={<EmployeeProfilePage />}>
+            <Route index element={<Navigate to="bio-data" replace />} />
+            <Route path="bio-data" element={<EmployeeProfileBioDataPage />} />
+            <Route
+              path="employment-reference"
+              element={<EmployeeProfileEmploymentReferencePage />}
+            />
+            <Route
+              path="employment-document"
+              element={<EmployeeProfileEmploymentDocumentPage />}
+            />
+            <Route
+              path="payroll-information"
+              element={<EmployeeProfilePayrollInformationPage />}
+            />
+            <Route
+              path="workflow-policy"
+              element={<EmployeeProfileWorkflowPolicyPage />}
+            />
+            <Route
+              path="documents"
+              element={<EmployeeProfileDocumentsPage />}
+            />
+            <Route
+              path="read-me-list"
+              element={<EmployeeProfileReadMeListPage />}
+            />
+          </Route>
+        </Route>
+
+        {/* HOD routes */}
+        <Route path="/dashboard/hod" element={<HODDashboard />}>
+          <Route index element={<HODMenuContent />} />
+          <Route
+            path="menu"
+            element={<Navigate to="/dashboard/hod" replace />}
+          />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<EMemoRegistrationPage />}
+          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
+          <Route
+            path="menu/employee-leave-approval"
+            element={<LeaveApprovalReviewPage />}
+          />
+          <Route
+            path="menu/registration-form-approval"
+            element={<ResignationFormApprovalPage />}
+          />
+          <Route
+            path="menu/handover-documents-approval"
+            element={<HandoverDocumentsApprovalPage />}
+          />
+          <Route
+            path="menu/clearance-report"
+            element={<HODClearanceReportPage />}
+          />
+          <Route
+            path="menu/clerance-report"
+            element={
+              <Navigate to="/dashboard/hod/menu/clearance-report" replace />
+            }
+          />
+          <Route
+            path="menu/clearance-form-approval"
+            element={<HODClearanceFormApprovalPage />}
+          />
+          <Route
+            path="menu/ememo-approval"
+            element={<MemoApprovalPageUpdated />}
+          />
           <Route path="profile" element={<EmployeeProfilePage />}>
             <Route index element={<Navigate to="bio-data" replace />} />
             <Route path="bio-data" element={<EmployeeProfileBioDataPage />} />
