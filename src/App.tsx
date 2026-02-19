@@ -1,16 +1,289 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import LoginPage from "./pages/auth/login-page";
 import ForgotPasswordPage from "./pages/auth/forgot-password-page";
 import ResetPasswordPage from "./pages/auth/reset-password-page";
+import AdminDashboard from "./pages/dashboard/admin";
+import RoleManagementPage from "./pages/dashboard/admin/pages/role";
+import DashboardContent from "./pages/dashboard/admin/dashboard-content";
+import SystemSetupContent from "./pages/dashboard/admin/system-setup-content";
+import UserManagementContent from "./pages/dashboard/admin/user-management-content";
+import AssetManagementContent from "./pages/dashboard/admin/asset-management-content";
+import DepartmentManagementPage from "./pages/dashboard/admin/pages/department";
+import DesignationManagementPage from "./pages/dashboard/admin/pages/designation";
+import LevelManagementPage from "./pages/dashboard/admin/pages/level";
+import LeaveApprovalPage from "./pages/dashboard/admin/pages/approval-leave";
+import MemoApprovalPage from "./pages/dashboard/admin/pages/approval-memo";
+import VoucherApprovalPage from "./pages/dashboard/admin/pages/approval-voucher";
+import HrDashboard from "./pages/dashboard/hr";
+import HRDashboardContent from "./pages/dashboard/hr/hr-dashboard-content";
+import HRSystemSetupContent from "./pages/dashboard/hr/hr-system-setup-content";
+import ReadingListPage from "./pages/dashboard/hr/hr-reading-list";
+import HMOSetupPage from "./pages/dashboard/hr/hr-hmo-setup";
+import ManageHMOPage from "./pages/dashboard/hr/hr-manage-hmo";
+import JobRolePage from "./pages/dashboard/hr/job-role";
+import HolidayManagementPage from "./pages/dashboard/hr/hr-holiday";
+import LeaveManagementContentPage from "./pages/dashboard/hr/hr-leave";
+import UnitManagementPage from "./pages/dashboard/hr/unit";
+import OnboardingDocumentPage from "./pages/dashboard/hr/hr-onboarding-docs";
+import ExitApprovalPage from "./pages/dashboard/hr/hr-exit-approval";
+import StaffExitApprovalPage from "./pages/dashboard/hr/hr-staff-exit-approval";
+import CandidateOfferPage from "./pages/dashboard/hr/hr-candidate-offer";
+import EmployeeProfileManagementPage from "./pages/dashboard/hr/hr-employee-profile";
+import { ThemeProvider } from "./components/theme-provider";
+import HRMenuContent from "./pages/dashboard/hr/menu/menu-content";
+import LeavePlanningPage from "./pages/dashboard/hr/menu/leave-planning";
+import HMOPage from "./pages/dashboard/hr/menu/hmo";
+import HandoverDocumentPage from "./pages/dashboard/hr/menu/handover-document";
+import ExitInterviewPage from "./pages/dashboard/hr/menu/exit-interview-page";
+import ClearanceFormApprovalPage from "./pages/dashboard/hr/menu/clearanceform-approvalpage";
+import ClearanceReportPage from "./pages/dashboard/hr/menu/clearance-reportpage";
+import ExitRetirementPage from "./pages/dashboard/hr/menu/exitretirementpage";
+import EMemoRegistrationPage from "./pages/dashboard/hr/menu/ememo-registration";
+import EMemoTrackerPage from "./pages/dashboard/hr/menu/ememo-tracker";
+import EmployeeDashboard from "./pages/dashboard/employee";
+import EmployeeMenuContent from "./pages/dashboard/employee/menu/employee-menu-setup";
+import HandoverDocumentsFormPage from "./pages/dashboard/employee/menu/handover-documents-form";
+import ExitInterviewFormPage from "./pages/dashboard/employee/menu/exit-interview-form";
+import ClearanceFormPage from "./pages/dashboard/employee/menu/clearance-form";
+import EmployeeClearanceReportPage from "./pages/dashboard/employee/menu/resignation-form";
+import EmployeeProfilePage from "./pages/dashboard/employee/profile";
+import EmployeeProfileBioDataPage from "./pages/dashboard/employee/profile/bio-data";
+import EmployeeProfileEmploymentReferencePage from "./pages/dashboard/employee/profile/employment-reference";
+import EmployeeProfileEmploymentDocumentPage from "./pages/dashboard/employee/profile/employment-document";
+import EmployeeProfilePayrollInformationPage from "./pages/dashboard/employee/profile/payroll-information";
+import EmployeeProfileWorkflowPolicyPage from "./pages/dashboard/employee/profile/workflow-policy";
+import EmployeeProfileDocumentsPage from "./pages/dashboard/employee/profile/documents";
+import EmployeeProfileReadMeListPage from "./pages/dashboard/employee/profile/read-me-list";
+import HODDashboard from "./pages/dashboard/hod";
+import HODMenuContent from "./pages/dashboard/hod/menu/hod-menu-setup";
+import ResignationFormApprovalPage from "./pages/dashboard/hod/menu/resignationapprovalformpage";
+import HODClearanceFormApprovalPage from "./pages/dashboard/hod/menu/clearanceformapprovalpage";
+import HandoverDocumentsApprovalPage from "./pages/dashboard/hod/menu/handoverdocumentsapprovalpage";
+import HODClearanceReportPage from "./pages/dashboard/hod/menu/clearancereportpage";
+import LeaveApprovalReviewPage from "./pages/dashboard/hod/menu/leaveapprovalpage";
+import MemoApprovalPageUpdated from "./pages/dashboard/hod/menu/memoapprovalpage";
 
 function App() {
   return (
-    <Routes>
-      {/* Public routes */}
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      <Route path="/reset-password" element={<ResetPasswordPage />} />
-    </Routes>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Routes>
+        {/* Public routes */}
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+
+        {/* Admin routes */}
+        <Route path="/dashboard/admin" element={<AdminDashboard />}>
+          <Route index element={<DashboardContent />} />
+          <Route path="dashboard" element={<DashboardContent />} />
+          <Route path="system" element={<SystemSetupContent />} />
+          <Route path="users" element={<UserManagementContent />} />
+          <Route path="assets" element={<AssetManagementContent />} />
+          <Route path="roles" element={<RoleManagementPage />} />
+          <Route path="departments" element={<DepartmentManagementPage />} />
+          <Route path="designations" element={<DesignationManagementPage />} />
+          <Route path="levels" element={<LevelManagementPage />} />
+          <Route path="approvals/leave" element={<LeaveApprovalPage />} />
+          <Route path="approvals/memo" element={<MemoApprovalPage />} />
+          <Route path="approvals/voucher" element={<VoucherApprovalPage />} />
+        </Route>
+
+        {/* HR routes */}
+        <Route path="/dashboard/hr" element={<HrDashboard />}>
+          <Route index element={<HRDashboardContent />} />
+          <Route path="system" element={<HRSystemSetupContent />} />
+          <Route
+            path="departments"
+            element={<DepartmentManagementPage backTo="/dashboard/hr/system" />}
+          />
+          <Route
+            path="designations"
+            element={
+              <DesignationManagementPage backTo="/dashboard/hr/system" />
+            }
+          />
+          <Route
+            path="levels"
+            element={<LevelManagementPage backTo="/dashboard/hr/system" />}
+          />
+          <Route path="readinglist" element={<ReadingListPage />} />
+          <Route path="hmo-setup" element={<HMOSetupPage />} />
+          <Route path="manage-hmo-setup" element={<ManageHMOPage />} />
+          <Route path="exit-approval" element={<ExitApprovalPage />} />
+          <Route
+            path="staff-exit-approval"
+            element={<StaffExitApprovalPage />}
+          />
+          <Route path="jobrole" element={<JobRolePage />} />
+          <Route path="holidays" element={<HolidayManagementPage />} />
+          <Route path="leaves" element={<LeaveManagementContentPage />} />
+          <Route path="units" element={<UnitManagementPage />} />
+          <Route path="onboarding" element={<OnboardingDocumentPage />} />
+          <Route path="candidate" element={<CandidateOfferPage />} />
+          <Route path="employee" element={<EmployeeProfileManagementPage />} />
+          <Route
+            path="employeeprofile"
+            element={<EmployeeProfileManagementPage />}
+          />
+          <Route path="menu" element={<HRMenuContent />} />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<EMemoRegistrationPage />}
+          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
+          <Route path="menu/exit-retirement" element={<ExitRetirementPage />} />
+          <Route
+            path="menu/handover-documents"
+            element={<HandoverDocumentPage />}
+          />
+          <Route
+            path="menu/exit-interviews-forms"
+            element={<ExitInterviewPage />}
+          />
+          <Route
+            path="menu/clearance-form-approval"
+            element={<ClearanceFormApprovalPage />}
+          />
+          <Route
+            path="menu/clearance-report"
+            element={<ClearanceReportPage />}
+          />
+        </Route>
+
+        {/* EMPLOYEE routes */}
+        <Route path="/dashboard/employee" element={<EmployeeDashboard />}>
+          <Route index element={<EmployeeMenuContent />} />
+          <Route
+            path="menu"
+            element={<Navigate to="/dashboard/employee" replace />}
+          />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<EMemoRegistrationPage />}
+          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
+          <Route
+            path="menu/clerance-report"
+            element={<EmployeeClearanceReportPage />}
+          />
+          <Route
+            path="menu/handover-documents-form"
+            element={<HandoverDocumentsFormPage />}
+          />
+          <Route
+            path="menu/exit-interview-form"
+            element={<ExitInterviewFormPage />}
+          />
+          <Route path="menu/clearance-form" element={<ClearanceFormPage />} />
+          <Route path="profile" element={<EmployeeProfilePage />}>
+            <Route index element={<Navigate to="bio-data" replace />} />
+            <Route path="bio-data" element={<EmployeeProfileBioDataPage />} />
+            <Route
+              path="employment-reference"
+              element={<EmployeeProfileEmploymentReferencePage />}
+            />
+            <Route
+              path="employment-document"
+              element={<EmployeeProfileEmploymentDocumentPage />}
+            />
+            <Route
+              path="payroll-information"
+              element={<EmployeeProfilePayrollInformationPage />}
+            />
+            <Route
+              path="workflow-policy"
+              element={<EmployeeProfileWorkflowPolicyPage />}
+            />
+            <Route
+              path="documents"
+              element={<EmployeeProfileDocumentsPage />}
+            />
+            <Route
+              path="read-me-list"
+              element={<EmployeeProfileReadMeListPage />}
+            />
+          </Route>
+        </Route>
+
+        {/* HOD routes */}
+        <Route path="/dashboard/hod" element={<HODDashboard />}>
+          <Route index element={<HODMenuContent />} />
+          <Route
+            path="menu"
+            element={<Navigate to="/dashboard/hod" replace />}
+          />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<EMemoRegistrationPage />}
+          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
+          <Route
+            path="menu/employee-leave-approval"
+            element={<LeaveApprovalReviewPage />}
+          />
+          <Route
+            path="menu/registration-form-approval"
+            element={<ResignationFormApprovalPage />}
+          />
+          <Route
+            path="menu/handover-documents-approval"
+            element={<HandoverDocumentsApprovalPage />}
+          />
+          <Route
+            path="menu/clearance-report"
+            element={<HODClearanceReportPage />}
+          />
+          <Route
+            path="menu/clerance-report"
+            element={
+              <Navigate to="/dashboard/hod/menu/clearance-report" replace />
+            }
+          />
+          <Route
+            path="menu/clearance-form-approval"
+            element={<HODClearanceFormApprovalPage />}
+          />
+          <Route
+            path="menu/ememo-approval"
+            element={<MemoApprovalPageUpdated />}
+          />
+          <Route path="profile" element={<EmployeeProfilePage />}>
+            <Route index element={<Navigate to="bio-data" replace />} />
+            <Route path="bio-data" element={<EmployeeProfileBioDataPage />} />
+            <Route
+              path="employment-reference"
+              element={<EmployeeProfileEmploymentReferencePage />}
+            />
+            <Route
+              path="employment-document"
+              element={<EmployeeProfileEmploymentDocumentPage />}
+            />
+            <Route
+              path="payroll-information"
+              element={<EmployeeProfilePayrollInformationPage />}
+            />
+            <Route
+              path="workflow-policy"
+              element={<EmployeeProfileWorkflowPolicyPage />}
+            />
+            <Route
+              path="documents"
+              element={<EmployeeProfileDocumentsPage />}
+            />
+            <Route
+              path="read-me-list"
+              element={<EmployeeProfileReadMeListPage />}
+            />
+          </Route>
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 

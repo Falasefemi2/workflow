@@ -23,7 +23,6 @@ export function ResetPasswordForm({
                 </p>
               </div>
 
-              {/* New Password Field */}
               <Field>
                 <FieldLabel htmlFor="newPassword">New Password</FieldLabel>
                 <Input
@@ -34,7 +33,6 @@ export function ResetPasswordForm({
                 />
               </Field>
 
-              {/* Confirm Password Field */}
               <Field>
                 <div className="flex items-center">
                   <FieldLabel htmlFor="confirmPassword">
@@ -55,7 +53,6 @@ export function ResetPasswordForm({
                 />
               </Field>
 
-              {/* Submit Button */}
               <Field>
                 <Button type="submit" className="w-full">
                   Reset Password
