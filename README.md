@@ -1,75 +1,66 @@
-# React + TypeScript + Vite
+# Company Internal Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a web application for internal company management, providing tools for
+Human Resources, employees, and system administrators.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Employee Management:** Manage employee profiles, documents, and biodata.
+- **HR Management:** Handle candidate offers, employee onboarding, HMO
+  management, and leave approvals.
+- **Administrative Tools:** System setup, user management, and approval
+  workflows for memos and vouchers.
+- **Employee Self-Service:** Employees can manage their documents, apply for
+  leave, and access company policies.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Frontend:** React, TypeScript, Vite
+- **UI:** Tailwind CSS, shadcn/ui, Radix UI
+- **Routing:** React Router
+- **Data Tables:** TanStack Table
+- **Charts:** Recharts
+- **Linting:** ESLint
+- **Package Manager:** bun
 
-Note: This will impact Vite dev & build performances.
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js
+- Bun
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Falasefemi2/workflow
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd web
+   ```
+3. Install dependencies:
+   ```bash
+   bun install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Available Scripts
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **`bun dev`**: Runs the app in development mode. Open
+  [http://localhost:5173](http://localhost:5173) to view it in the browser.
+- **`bun build`**: Builds the app for production to the `dist` folder.
+- **`bun lint`**: Lints the codebase using ESLint.
+- **`bun preview`**: Serves the production build locally.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The project follows a standard Vite + React project structure.
+
+- `src/`: Contains the main application source code.
+  - `components/`: Shared UI components.
+  - `hooks/`: Custom React hooks for data fetching and business logic.
+  - `lib/`: Utility functions.
+  - `pages/`: Application pages, organized by user role (admin, employee, hr).
+  - `auth/`: Components and pages related to authentication.
+- `public/`: Static assets.
