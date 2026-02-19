@@ -3,6 +3,8 @@ import {
   CheckCircle,
   ClipboardCheck,
   ClipboardList,
+  FileBarChart,
+  FileCheck,
   FileText,
   Heart,
   HeartPlus,
@@ -26,6 +28,87 @@ export interface Level {
   utilityAllowance?: number;
   leaveExpirationInterval?: number;
   lunchSubsidy?: number;
+}
+
+export interface ResignationFormReviewData {
+  staffName: string;
+  disengagementDate: string;
+  reviewDate: string;
+  approvalStatus: string;
+  comment: string;
+}
+
+export type LeaveStatus = "Pending" | "Approved" | "Rejected";
+export type LeaveType2 =
+  | "Maternity Leave"
+  | "Study Leave"
+  | "Sick Leave"
+  | "Annual Leave"
+  | "Casual Leave";
+
+export interface LeaveApprovalRecord {
+  id: string;
+  leaveType: LeaveType2;
+  employeeName: string;
+  commencementDate: string;
+  resumptionDate: string;
+  status: LeaveStatus;
+  leaveDays?: number;
+  handoverNote?: string;
+  reliefOfficer?: string;
+}
+
+export type MemoStatus = "Pending" | "Approved" | "Rejected";
+
+export interface MemoApprovalRecord {
+  id: string;
+  dateApproved: string;
+  dateRaised: string;
+  department: string;
+  subject: string;
+  generator: string;
+  status: MemoStatus;
+  toEmail?: string;
+  fromEmail?: string;
+  memoDate?: string;
+  memoTime?: string;
+  content?: string;
+  documents?: MemoDocument[];
+  hodComment?: string;
+}
+
+export interface MemoDocument {
+  id: string;
+  name: string;
+  description: string;
+  filePath?: string;
+}
+
+export interface MemoApprovalReviewData {
+  dateApproved: string;
+  dateRaised: string;
+  subject: string;
+  generator: string;
+  department: string;
+  action: "approve" | "reject" | "";
+  hodComment: string;
+}
+
+export interface LeaveApprovalReviewData {
+  leaveType: string;
+  leaveDays: string;
+  commencementDate: string;
+  handoverNote: string;
+  reliefOfficer: string;
+  action: "approve" | "reject" | "";
+}
+
+export interface ClearanceFormReviewData {
+  staffName: string;
+  disengagementDate: string;
+  reviewDate: string;
+  approvalStatus: string;
+  comment: string;
 }
 
 export const mockLeaves: Level[] = [
@@ -310,6 +393,45 @@ export const employeeExitRetirementCategories: CategoryBase[] = [
     id: "clearance-form",
     title: "Clearance Form",
     icon: CheckCircle,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+];
+
+export const hodExitRetirementCategories: CategoryBase[] = [
+  {
+    id: "registration-form-apporval",
+    title: "Registration Forms Approval",
+    icon: UserCheck,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "handover-documents-approval",
+    title: "Handover Documents Approval",
+    icon: FileCheck,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "clearance-form-approval",
+    title: "Clerance Form Approval",
+    icon: ClipboardCheck,
+    bgColor:
+      "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
+    iconBgColor: "bg-primary/10",
+    iconColor: "text-primary",
+  },
+  {
+    id: "clearance-report",
+    title: "Clearance Report",
+    icon: FileBarChart,
     bgColor:
       "border border-border/30 bg-secondary/20 hover:bg-secondary/40 transition-all duration-300 hover:border-primary/50",
     iconBgColor: "bg-primary/10",
