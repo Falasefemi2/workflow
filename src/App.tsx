@@ -62,6 +62,7 @@ import HandoverDocumentsApprovalPage from "./pages/dashboard/hod/menu/handoverdo
 import HODClearanceReportPage from "./pages/dashboard/hod/menu/clearancereportpage";
 import LeaveApprovalReviewPage from "./pages/dashboard/hod/menu/leaveapprovalpage";
 import MemoApprovalPageUpdated from "./pages/dashboard/hod/menu/memoapprovalpage";
+import CandidateLeaveRequestPage from "./pages/dashboard/canidate/candidate-offerpage";
 
 function App() {
   return (
@@ -282,6 +283,12 @@ function App() {
             />
           </Route>
         </Route>
+
+        {/* CANDIDATE routes */}
+        <Route
+          path="/dashboard/candidate-offer"
+          element={<CandidateLeaveRequestPage />}
+        ></Route>
       </Routes>
     </ThemeProvider>
   );

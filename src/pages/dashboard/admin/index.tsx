@@ -75,7 +75,7 @@ export default function AdminDashboard() {
               System Setup
             </TabsTrigger>
             <TabsTrigger value="users" className={tabTriggerClassName}>
-              User Management
+              Employee Management
             </TabsTrigger>
             <TabsTrigger value="assets" className={tabTriggerClassName}>
               E-memo Asset
