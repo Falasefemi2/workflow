@@ -15,6 +15,24 @@ import {
 } from "lucide-react";
 import type { CategoryBase } from "./shared/category-selection-modal";
 
+export type CandidateOfferStatus = "Pending" | "Approved" | "Rejected";
+
+export interface CandidateOfferRequest {
+  id: string;
+  employeeName: string;
+  department: string;
+  proposedStartDate: string;
+  status: CandidateOfferStatus;
+}
+
+export interface CandidateOfferReviewData {
+  employeeName: string;
+  department: string;
+  proposedStartDate: string;
+  action: "approve" | "reject" | "";
+  rejectionReason: string;
+}
+
 export interface Level {
   id: string;
   name: string;
