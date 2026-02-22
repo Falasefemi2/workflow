@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/shared/page-header";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 import {
   Table,
   TableBody,
@@ -12,6 +13,7 @@ import { useHandoverDocumentManagement } from "@/hooks/use-handover-documents";
 import { HandoverDocumentsApprovalModal } from "./handoverdocumentsapprovalmodal";
 
 export default function HandoverDocumentsApprovalPage() {
+  const menuBasePath = useMenuBasePath();
   const {
     documents,
     isReviewModalOpen,
@@ -36,7 +38,7 @@ export default function HandoverDocumentsApprovalPage() {
     <div className="pb-12">
       <PageHeader
         title="Handover Documents Approval"
-        backTo="/dashboard/hod/menu"
+        backTo={menuBasePath}
       />
 
       <div className="text-center mt-8 mb-8">
@@ -111,3 +113,5 @@ export default function HandoverDocumentsApprovalPage() {
     </div>
   );
 }
+
+

@@ -63,6 +63,9 @@ import HODClearanceReportPage from "./pages/dashboard/hod/menu/clearancereportpa
 import LeaveApprovalReviewPage from "./pages/dashboard/hod/menu/leaveapprovalpage";
 import MemoApprovalPageUpdated from "./pages/dashboard/hod/menu/memoapprovalpage";
 import CandidateLeaveRequestPage from "./pages/dashboard/canidate/candidate-offerpage";
+import InternalAuditorDashboard from "./pages/dashboard/internalauditor";
+import InternalAuditorMenuContent from "./pages/dashboard/internalauditor/menu/internalauditor-menu-setup";
+import EVoucherApprovalPage from "./pages/dashboard/internalauditor/menu/evoucher-approval";
 
 function App() {
   return (
@@ -284,6 +287,88 @@ function App() {
           </Route>
         </Route>
 
+        {/* INTERNAL AUDITOR routes */}
+        <Route
+          path="/dashboard/internalauditor"
+          element={<InternalAuditorDashboard />}
+        >
+          <Route index element={<InternalAuditorMenuContent />} />
+
+          <Route
+            path="menu"
+            element={<Navigate to="/dashboard/internalauditor" replace />}
+          />
+          <Route path="menu/leave-planning" element={<LeavePlanningPage />} />
+          <Route path="menu/hmo" element={<HMOPage />} />
+          <Route
+            path="menu/ememo-registration"
+            element={<EMemoRegistrationPage />}
+          />
+          <Route path="menu/ememo-tracker" element={<EMemoTrackerPage />} />
+          <Route path="menu/evoucher-approval" element={<EVoucherApprovalPage />} />
+          <Route
+            path="menu/employee-leave-approval"
+            element={<LeaveApprovalReviewPage />}
+          />
+          <Route
+            path="menu/registration-form-approval"
+            element={<ResignationFormApprovalPage />}
+          />
+          <Route
+            path="menu/handover-documents-approval"
+            element={<HandoverDocumentsApprovalPage />}
+          />
+          <Route
+            path="menu/clearance-report"
+            element={<HODClearanceReportPage />}
+          />
+          <Route
+            path="menu/clerance-report"
+            element={
+              <Navigate
+                to="/dashboard/internalauditor/menu/clearance-report"
+                replace
+              />
+            }
+          />
+          <Route
+            path="menu/clearance-form-approval"
+            element={<HODClearanceFormApprovalPage />}
+          />
+          <Route
+            path="menu/ememo-approval"
+            element={<MemoApprovalPageUpdated />}
+          />
+          <Route path="profile" element={<EmployeeProfilePage />}>
+            <Route index element={<Navigate to="bio-data" replace />} />
+            <Route path="bio-data" element={<EmployeeProfileBioDataPage />} />
+            <Route
+              path="employment-reference"
+              element={<EmployeeProfileEmploymentReferencePage />}
+            />
+            <Route
+              path="employment-document"
+              element={<EmployeeProfileEmploymentDocumentPage />}
+            />
+            <Route
+              path="payroll-information"
+              element={<EmployeeProfilePayrollInformationPage />}
+            />
+            <Route
+              path="workflow-policy"
+              element={<EmployeeProfileWorkflowPolicyPage />}
+            />
+            <Route
+              path="documents"
+              element={<EmployeeProfileDocumentsPage />}
+            />
+            <Route
+              path="read-me-list"
+              element={<EmployeeProfileReadMeListPage />}
+            />
+          </Route>
+        </Route>
+
         {/* CANDIDATE routes */}
         <Route
           path="/dashboard/candidate-offer"
@@ -295,3 +380,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+

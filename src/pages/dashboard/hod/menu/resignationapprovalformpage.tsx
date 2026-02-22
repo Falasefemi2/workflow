@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/shared/page-header";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 import {
   Table,
   TableBody,
@@ -12,6 +13,7 @@ import { ResignationFormApprovalReviewModal } from "./resignationformapprovalmod
 import { useResignationFormApprovalManagement } from "@/hooks/use-resignationformapproval";
 
 export default function ResignationFormApprovalPage() {
+  const menuBasePath = useMenuBasePath();
   const {
     approvals,
     isReviewModalOpen,
@@ -36,7 +38,7 @@ export default function ResignationFormApprovalPage() {
     <div className="pb-12">
       <PageHeader
         title="Resignation Form Approval"
-        backTo="/dashboard/hod/menu"
+        backTo={menuBasePath}
       />
 
       {/* Title and Divider */}
@@ -115,3 +117,5 @@ export default function ResignationFormApprovalPage() {
     </div>
   );
 }
+
+
