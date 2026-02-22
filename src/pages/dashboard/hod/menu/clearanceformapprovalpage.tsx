@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/shared/page-header";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 import {
   Table,
   TableBody,
@@ -12,6 +13,7 @@ import { ClearanceFormApprovalReviewModal } from "./clearanceformapprovalmodal";
 import { useClearanceFormApprovalManagement } from "@/hooks/use-clearanceform-apporval";
 
 export default function ClearanceFormApprovalPage() {
+  const menuBasePath = useMenuBasePath();
   const {
     approvals,
     isReviewModalOpen,
@@ -25,7 +27,7 @@ export default function ClearanceFormApprovalPage() {
     <div className="pb-12">
       <PageHeader
         title="Clearance Form Approval"
-        backTo="/dashboard/hod/menu"
+        backTo={menuBasePath}
       />
 
       {/* Title and Divider */}
@@ -102,3 +104,5 @@ export default function ClearanceFormApprovalPage() {
     </div>
   );
 }
+
+

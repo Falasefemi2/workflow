@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/shared/page-header";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 import {
   Table,
   TableBody,
@@ -12,6 +13,7 @@ import { useClearanceReportManagement } from "@/hooks/use-clearancereport";
 import { ClearanceReportModal } from "./clearancereportmodal";
 
 export default function ClearanceReportPage() {
+  const menuBasePath = useMenuBasePath();
   const {
     reports,
     isReviewModalOpen,
@@ -22,7 +24,7 @@ export default function ClearanceReportPage() {
 
   return (
     <div className="pb-12">
-      <PageHeader title="Clearance Report" backTo="/dashboard/hod/menu" />
+      <PageHeader title="Clearance Report" backTo={menuBasePath} />
 
       <div className="text-center mt-8 mb-8">
         <div className="border-b-2 border-primary"></div>
@@ -98,3 +100,5 @@ export default function ClearanceReportPage() {
     </div>
   );
 }
+
+

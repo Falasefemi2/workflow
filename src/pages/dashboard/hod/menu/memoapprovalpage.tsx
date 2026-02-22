@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PageHeader } from "@/components/shared/page-header";
+import { useMenuBasePath } from "../../shared/use-menu-base-path";
 import {
   Table,
   TableBody,
@@ -36,6 +37,7 @@ const getStatusColor = (status: string) => {
 };
 
 export default function MemoApprovalPageUpdated() {
+  const menuBasePath = useMenuBasePath();
   const [activeTab, setActiveTab] = useState<TabType>("Approved");
   const [searchFilters, setSearchFilters] = useState({
     dateApproved: "",
@@ -85,7 +87,7 @@ export default function MemoApprovalPageUpdated() {
 
   return (
     <div className="pb-12">
-      <PageHeader title="Memo Approval" backTo="/dashboard/hod/menu" />
+      <PageHeader title="Memo Approval" backTo={menuBasePath} />
 
       {/* Tabs Navigation */}
       <div className="flex gap-12 border-b border-border/30 mt-8 mb-8">
@@ -316,3 +318,5 @@ export default function MemoApprovalPageUpdated() {
     </div>
   );
 }
+
+
