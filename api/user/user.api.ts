@@ -3,11 +3,11 @@ import type { ApiError, ApiResponse, CreateUserPayload, CurrentUser, ForgotPassw
 import apiClient from "../client"
 import axios from "axios"
 
-const handleApiError = (err: unknown): ApiError => {
+const handleApiError = (err: unknown): never => {
     if (axios.isAxiosError(err)) {
-        return err.response?.data as ApiError
+        throw err.response?.data as ApiError
     }
-    return { error: "unexpected error" }
+    throw { error: "unexpected error" }
 }
 
 export const loginUser = (payload: LoginPayload) =>
