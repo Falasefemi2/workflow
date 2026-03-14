@@ -1,3 +1,5 @@
+/** @format */
+
 import { useState } from "react";
 import { mockUsers, type User } from "@/components/mockData";
 
@@ -11,6 +13,7 @@ export interface UserFormData {
   employmentType: string;
   status: string;
   role: string;
+  phone: string;
 }
 
 export function useUserManagement() {
@@ -28,6 +31,7 @@ export function useUserManagement() {
     employmentType: "",
     status: "",
     role: "",
+    phone: "",
   });
 
   const isEditMode = editingUserId !== null;
@@ -45,6 +49,7 @@ export function useUserManagement() {
       employmentType: "",
       status: "",
       role: "",
+      phone: "",
     });
     setIsDialogOpen(true);
   };
@@ -61,6 +66,7 @@ export function useUserManagement() {
       employmentType: user.employmentType,
       status: user.status,
       role: "", // Role is not in User interface but kept for form
+      phone: "",
     });
     setIsDialogOpen(true);
   };
@@ -84,19 +90,19 @@ export function useUserManagement() {
     if (isEditMode) {
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
-          user.id === editingUserId
-            ? {
-                ...user,
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                email: formData.email,
-                gender: formData.gender,
-                subsidiary: formData.subsidiary,
-                designation: formData.designation,
-                employmentType: formData.employmentType,
-                status: formData.status,
-              }
-            : user,
+          user.id === editingUserId ?
+            {
+              ...user,
+              firstName: formData.firstName,
+              lastName: formData.lastName,
+              email: formData.email,
+              gender: formData.gender,
+              subsidiary: formData.subsidiary,
+              designation: formData.designation,
+              employmentType: formData.employmentType,
+              status: formData.status,
+            }
+          : user,
         ),
       );
     } else {
@@ -127,6 +133,7 @@ export function useUserManagement() {
       employmentType: "",
       status: "",
       role: "",
+      phone: "",
     });
   };
 
