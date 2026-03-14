@@ -1,7 +1,7 @@
 import { useQuery, useMutation } from "@tanstack/react-query"
 import { Effect } from "effect"
 import { createUser, forgotPassword, getCurrentUser, getUserByEmail, getUserByID, getUsers, loginUser, logout, resetPassword } from "./user.api"
-import { CreateUserPayload, ForgotPasswordPayload, GetUsersParams, LoginPayload, ResetPasswordPayload } from "./user.types"
+import type { CreateUserPayload, ForgotPasswordPayload, GetUsersParams, LoginPayload, ResetPasswordPayload } from "./user.types"
 
 export const useGetCurrentUser = () =>
     useQuery({
